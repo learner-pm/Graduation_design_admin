@@ -1,40 +1,121 @@
-.login_content {
-  width: 70%;
-  height: 100%;
+.login_button {
+  display: flex;
+  button {
+    outline: none;
+    border: none;
+    border-radius: 999px;
+    padding: 8px 34px;
+    font-size: 16px;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+}
+.login_button button:nth-child(1) {
+  background-color: #40a9ff;
+  color: white;
+  margin-right: 10px;
+}
+.login_button button:nth-child(2) {
+  background-color: white;
+  color: black;
+}
+.login_remk {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 0;
+  color: #a3a3a3;
+}
+.login_sign_status {
+  width: 60px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 100px;
+}
+.sign_input {
+  height: 100%;
+  width: calc(100% - 120px);
 
-  div {
-    width: 400px;
-    p:nth-child(1) {
-      font-size: 30px;
-      text-align: right;
-    }
-    p:nth-child(2) {
-      text-align: left;
-      font-size: 20px;
-    }
-    #components-form-demo-normal-login .login-form-forgot {
-      float: right;
-    }
-    #components-form-demo-normal-login .ant-col-rtl .login-form-forgot {
-      float: left;
-    }
+  p {
+    font-size: 14px;
+    margin: 0;
+    padding-top: 8px;
+    color: #a3a3a3;
+  }
+  input {
+    outline: none;
+    border: none;
+    font-size: 16px;
+    width: 100%;
+    background-color: inherit;
   }
 }
-.login_image {
-  width: 30%;
-  max-width: 540px;
+.sign_div_type {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    font-size: 26px;
+    color: #cfd0d3;
+  }
+}
+.sign_div {
+  width: 100%;
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-radius: 4px;
+}
+.login_sign_content {
+  width: 100%;
+  height: auto;
+}
+.login_title {
+  font-size: 36px;
+  font-weight: 400;
+}
+.login_des {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 50px;
+}
+.login_sign {
+  width: 560px;
+  padding: 0 60px;
+  margin-right: 20%;
   height: 100%;
-  img {
-    width: 100%;
-    height: 100%;
+  // background-color: #a3a3a31a;
+}
+.login_image {
+  width: 480px;
+  height: 100%;
+}
+.login_content {
+  height: calc(100% - 100px);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.login_title {
+  p {
+    font-size: 24px;
+    font-weight: 500;
   }
 }
 .login {
   height: 100%;
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
+  background-color: #99999912;
+  padding: 50px;
+}
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
 }

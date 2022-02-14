@@ -2,20 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './style/index.less';
 import { Column, Line } from '@ant-design/plots';
 const Data = () => {
-  a();
-  const a = () => {
-    console.log(1);
-  };
-  const config = {
-    data,
-    height: 400,
-    xField: 'year',
-    yField: 'value',
-    point: {
-      size: 5,
-      shape: 'diamond',
-    },
-  };
   const data = [
     { year: '1991', value: 3 },
     { year: '1992', value: 4 },
@@ -27,7 +13,16 @@ const Data = () => {
     { year: '1998', value: 9 },
     { year: '1999', value: 13 },
   ];
-
+  const config = {
+    data,
+    height: 400,
+    xField: 'year',
+    yField: 'value',
+    point: {
+      size: 5,
+      shape: 'diamond',
+    },
+  };
   const configColumn = {
     dateColumn,
     xField: 'type',
@@ -97,9 +92,9 @@ const Data = () => {
       <div id="container">
         <Line {...config} />
 
-        <Line {...config} />
+        {/* <Line {...config} /> */}
       </div>
-      <Column {...configColumn} />
+      {/* <Column {...configColumn} /> */}
     </>
   );
 };
