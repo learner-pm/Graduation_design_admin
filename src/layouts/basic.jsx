@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './style/basic.less';
 import { history } from 'umi';
 import { Layout, Menu, Button } from 'antd';
+import AppHeader from '../components/Header';
 import {
   UploadOutlined,
   UserOutlined,
@@ -25,10 +26,7 @@ const Basis = (props) => {
       if (sessionStorage.getItem('id')) history.push('/home');
     }
   });
-  const loginOut = () => {
-    sessionStorage.removeItem('id');
-    history.push('/');
-  };
+
   const [openKeys, setOpenKeys] = useState(['home']);
   const rootSubmenuKeys = ['home', 'sub1', '2', '3', '4'];
   const onOpenChange = (keys) => {
@@ -97,18 +95,10 @@ const Basis = (props) => {
               className="site-layout-sub-header-background"
               style={{ padding: '0 24px' }}
             >
-              <p>{title}</p>
-              <Button type="primary" onClick={loginOut}>
-                Sign Out
-              </Button>
+              <AppHeader title={title} />
             </Header>
             <Content style={{ margin: '24px 16px 0' }}>
-              <div
-                className="site-layout-background"
-                style={{ padding: 24, minHeight: 360 }}
-              >
-                {children}
-              </div>
+              <div className="site-layout-background">{children}</div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>
               MIT Licensed | Copyright © 2021-present PengMao{' '}

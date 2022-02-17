@@ -1,11 +1,9 @@
 import { connect } from 'dva';
 import { useState, useEffect } from 'react';
 import { history } from 'umi';
-
-// vue 需求
+import Home from '../components/Home';
 
 const IndexPage = (props) => {
-  //console.log(props);
   const { dispatch } = props;
 
   useEffect(() => {
@@ -21,9 +19,11 @@ const IndexPage = (props) => {
     sessionStorage.removeItem('id');
     history.push('/');
   };
-  return <div>这是首页</div>;
+  return (
+    <>
+      <Home dispatch={dispatch} />
+    </>
+  );
 };
 
 export default connect(() => ({}))(IndexPage);
-//tc- unit test  amd
-//
