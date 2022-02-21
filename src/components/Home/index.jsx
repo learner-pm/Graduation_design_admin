@@ -1,85 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { Line, Pie } from '@ant-design/plots';
+import { Button } from 'antd';
+import { Line, Pie, Column, Bar } from '@ant-design/plots';
 import './index.less';
+import { lineData, columnData, pieData, barData } from './util';
 
 const Home = (props) => {
   const { dispatch } = props;
-
-  const [data, setData] = useState([
-    {
-      day: '2021/03/04',
-      value: 10,
-      category: 'webSite',
+  const barConfig = {
+    data: barData,
+    xField: 'value',
+    yField: 'year',
+    seriesField: 'year',
+    legend: {
+      position: 'top-left',
     },
-    {
-      day: '2021/03/05',
-      value: 46,
-      category: 'webSite',
-    },
-    {
-      day: '2021/03/06',
-      value: 30,
-      category: 'webSite',
-    },
-    {
-      day: '2021/03/04',
-      value: 10,
-      category: 'App',
-    },
-    {
-      day: '2021/03/05',
-      value: 50,
-      category: 'App',
-    },
-    {
-      day: '2021/03/06',
-      value: 40,
-      category: 'App',
-    },
-    {
-      day: '2021/03/07',
-      value: 20,
-      category: 'App',
-    },
-  ]);
-
+  };
   const config = {
-    data,
+    data: lineData,
     xField: 'day',
     yField: 'value',
     seriesField: 'category',
     yAxis: {},
   };
 
-  const pieData = [
-    {
-      type: '分类一',
-      value: 27,
-    },
-    {
-      type: '分类二',
-      value: 25,
-    },
-    {
-      type: '分类三',
-      value: 18,
-    },
-    {
-      type: '分类四',
-      value: 15,
-    },
-    {
-      type: '分类五',
-      value: 10,
-    },
-    {
-      type: '其他',
-      value: 5,
-    },
-  ];
   const pieConfig = {
     appendPadding: 10,
-    pieData,
+    data: pieData,
     angleField: 'value',
     colorField: 'type',
     radius: 0.9,
@@ -98,6 +44,36 @@ const Home = (props) => {
       },
     ],
   };
+
+  const columnConfig = {
+    data: columnData,
+    xField: 'type',
+    yField: 'sales',
+    label: {
+      // 可手动配置 label 数据标签位置
+      position: 'middle',
+      // 'top', 'bottom', 'middle',
+      // 配置样式
+      style: {
+        fill: '#FFFFFF',
+        opacity: 0.6,
+      },
+    },
+    xAxis: {
+      label: {
+        autoHide: true,
+        autoRotate: false,
+      },
+    },
+    meta: {
+      type: {
+        alias: '类别',
+      },
+      sales: {
+        alias: '销售额',
+      },
+    },
+  };
   return (
     <>
       <div className="home">
@@ -110,9 +86,33 @@ const Home = (props) => {
           </div>
           <div className="charts_right">
             <div className="charts_right_line_one">
-              {/* <Pie {...pieConfig} /> */}
+              <p>年龄层分布情况</p>
+              <Pie {...pieConfig} style={{ height: '100%' }} />
             </div>
-            <div className="charts_right_line_two"></div>
+
+            <div className="charts_right_line_two">
+              <p>功能偏好</p>
+              <Column {...columnConfig} style={{ height: '100%' }} />
+            </div>
+          </div>
+          <div className="charts_right">
+            <div className="charts_right_last">
+              <Bar {...barConfig} />
+            </div>
+            {/* <div className="charts_right_line_one">
+              <Pie {...pieConfig} style={{ height: '100%' }} />
+              <p>年龄层分布情况</p>
+            </div>
+            <div className="charts_right_line_two"></div> */}
+          </div>
+        </div>
+        <div className="home_charts_line">
+          <div className="home_charts_line_div">
+            <div>
+              <p>网站/App 访问/下载量:</p>
+              <Button type="primary">更多</Button>
+            </div>
+            <Line {...config} style={{ height: 'calc(100% - 66px)' }} />
           </div>
         </div>
       </div>
