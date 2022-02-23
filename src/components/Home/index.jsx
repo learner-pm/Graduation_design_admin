@@ -3,9 +3,11 @@ import { Button } from 'antd';
 import { Line, Pie, Column, Bar } from '@ant-design/plots';
 import './index.less';
 import { lineData, columnData, pieData, barData } from './util';
+import Footer from './Footer';
 
 const Home = (props) => {
   const { dispatch } = props;
+
   const barConfig = {
     data: barData,
     xField: 'value',
@@ -86,13 +88,14 @@ const Home = (props) => {
           </div>
           <div className="charts_right">
             <div className="charts_right_line_one">
-              <p>年龄层分布情况</p>
-              <Pie {...pieConfig} style={{ height: '100%' }} />
+              <Pie {...pieConfig} style={{ height: '100%', width: '100%' }} />
             </div>
 
-            <div className="charts_right_line_two">
-              <p>功能偏好</p>
-              <Column {...columnConfig} style={{ height: '100%' }} />
+            <div className="charts_right_line_two  mid">
+              <Column
+                {...columnConfig}
+                style={{ height: '100%', width: '100%' }}
+              />
             </div>
           </div>
           <div className="charts_right">
@@ -115,6 +118,7 @@ const Home = (props) => {
             <Line {...config} style={{ height: 'calc(100% - 66px)' }} />
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );
