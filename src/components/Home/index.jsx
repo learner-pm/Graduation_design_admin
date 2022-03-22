@@ -80,11 +80,12 @@ const Home = (props) => {
     <>
       <div className="home">
         <div className="home_charts">
-          <div className="charts_left">
-            <p>网站/App 访问/下载量:</p>
+          <div className="charts_left home_people">
+            <h2>Welcome Back</h2>
+            {/* <p>网站/App 访问/下载量:</p>
             <div className="charts_left_line">
               <Line {...config} />
-            </div>
+            </div> */}
           </div>
           <div className="charts_right">
             <div className="charts_right_line_one">

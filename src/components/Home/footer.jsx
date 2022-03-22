@@ -13,14 +13,14 @@ const Footer = () => {
   }, []);
   return (
     <>
-      <div className="home_footer">
+      {/* <div className="home_footer">
         <p>
           <span> IP</span>: 124.12.12.0
         </p>
         <p>
           <span>Time</span>: {time}
         </p>
-      </div>
+      </div> */}
     </>
   );
 };

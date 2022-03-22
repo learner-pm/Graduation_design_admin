@@ -8,16 +8,19 @@ import {
   UserOutlined,
   VideoCameraOutlined,
   LineChartOutlined,
+  FileSearchOutlined,
   AppstoreOutlined,
   MailOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
+import { useTime } from '../hooks/useTime';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 const Basis = (props) => {
   const { children } = props;
   const [title, setTitle] = useState('首页');
+  const time = useTime();
   const listen = history.listen((location, action) => {
     //路由拦截
     if (location.pathname === '/home') {
@@ -30,7 +33,7 @@ const Basis = (props) => {
   const [openKeys, setOpenKeys] = useState(['home']);
   const rootSubmenuKeys = ['home', 'sub1', '2', '3', '4'];
   const onOpenChange = (keys) => {
-    console.log(keys);
+    //console.log(keys);
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
       setOpenKeys(keys);
@@ -39,8 +42,8 @@ const Basis = (props) => {
     }
   };
   const menuClick = ({ item, key, keyPath, domEvent }) => {
-    console.log(item);
-    console.log(key);
+    //console.log(item);
+    //console.log(key);
     setTitle(key);
     if (key.includes('data')) history.push('/data');
     else history.push(`/${key}`);
@@ -79,8 +82,8 @@ const Basis = (props) => {
                 <Menu.Item key="data_4">Option 4</Menu.Item>
               </SubMenu>
 
-              <Menu.Item key="video" icon={<VideoCameraOutlined />}>
-                视频
+              <Menu.Item key="video" icon={<FileSearchOutlined />}>
+                用户
               </Menu.Item>
               <Menu.Item key="upload" icon={<UploadOutlined />}>
                 上传
@@ -101,6 +104,14 @@ const Basis = (props) => {
               <div className="site-layout-background">{children}</div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>
+              <div className="layout_footer">
+                <p>
+                  <span> IP</span>: 124.12.12.0
+                </p>
+                <p>
+                  <span>Time</span>:{time}
+                </p>
+              </div>
               MIT Licensed | Copyright © 2021-present PengMao{' '}
               <a
                 href="https://beian.miit.gov.cn/#/Integrated/index"

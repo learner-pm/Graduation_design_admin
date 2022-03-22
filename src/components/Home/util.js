@@ -72,62 +72,58 @@ const lineData = [
 ];
 const columnData = [
   {
-    type: '家具家电',
+    type: 'one',
     sales: 38,
   },
   {
-    type: '粮油副食',
+    type: 'two',
     sales: 52,
   },
   {
-    type: '生鲜水果',
+    type: 'three',
     sales: 61,
   },
   {
-    type: '美容洗护',
+    type: 'four',
     sales: 145,
   },
   {
-    type: '母婴用品',
+    type: 'five',
     sales: 48,
   },
   {
-    type: '进口食品',
+    type: 'six',
     sales: 38,
   },
   {
-    type: '食品饮料',
+    type: 'seven',
     sales: 38,
   },
   {
-    type: '家庭清洁',
+    type: 'eight',
     sales: 38,
   },
 ];
 const pieData = [
   {
-    type: '分类一',
+    type: '一',
     value: 27,
   },
   {
-    type: '分类二',
+    type: '二',
     value: 25,
   },
   {
-    type: '分类三',
+    type: '三',
     value: 18,
   },
   {
-    type: '分类四',
+    type: '四',
     value: 15,
   },
   {
-    type: '分类五',
+    type: '五',
     value: 10,
-  },
-  {
-    type: '其他',
-    value: 5,
   },
 ];
 const barData = [

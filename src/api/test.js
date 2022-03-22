@@ -22,3 +22,8 @@ export async function getAllArtic() {
 
   return fetch(url);
 }
+
+export async function loginApi(obj) {
+  const url = '/api/user/login';
+  return fet.post(url, obj);
+}
