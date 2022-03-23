@@ -4,6 +4,7 @@ import { Line, Pie, Column, Bar } from '@ant-design/plots';
 import './index.less';
 import { lineData, columnData, pieData, barData } from './util';
 import Footer from './Footer';
+import WelcomeBack from './homeBack';
 
 const Home = (props) => {
   const { dispatch } = props;
@@ -79,47 +80,54 @@ const Home = (props) => {
   return (
     <>
       <div className="home">
-        <div className="home_charts">
-          <div className="charts_left home_people">
-            <h2>Welcome Back</h2>
-            {/* <p>网站/App 访问/下载量:</p>
-            <div className="charts_left_line">
-              <Line {...config} />
-            </div> */}
-          </div>
-          <div className="charts_right">
-            <div className="charts_right_line_one">
-              <Pie {...pieConfig} style={{ height: '100%', width: '100%' }} />
-            </div>
+        <div className="home_div" style={{ height: '40%' }}>
+          <WelcomeBack />
 
-            <div className="charts_right_line_two  mid">
+          <div className="home_charts">
+            <p className="home_charts_text">用户年龄分布情况：</p>
+            <div className="home_charts_div">
+              <Pie {...pieConfig} style={{ height: '90%', width: '100%' }} />
+            </div>
+            {/* <div className="charts_right_line_two  mid">
               <Column
                 {...columnConfig}
                 style={{ height: '100%', width: '100%' }}
               />
-            </div>
+            </div> */}
           </div>
-          <div className="charts_right">
-            <div className="charts_right_last">
-              <Bar {...barConfig} />
+
+          <div className="home_charts" style={{ width: '33%' }}>
+            <p className="home_charts_text">使用APP时间端频率：</p>
+            <div className="home_charts_div">
+              <Bar {...barConfig} style={{ height: '86%', width: '100%' }} />
             </div>
-            {/* <div className="charts_right_line_one">
-              <Pie {...pieConfig} style={{ height: '100%' }} />
-              <p>年龄层分布情况</p>
-            </div>
-            <div className="charts_right_line_two"></div> */}
           </div>
         </div>
-        <div className="home_charts_line">
-          <div className="home_charts_line_div">
-            <div>
-              <p>网站/App 访问/下载量:</p>
-              <Button type="primary">更多</Button>
+        <div className="home_div" style={{ height: '60%' }}>
+          <div className="home_charts_line">
+            <div className="home_charts_line_div">
+              <div>
+                <p>网站/App 访问/下载量:</p>
+                <Button type="primary">更多</Button>
+              </div>
+              <Line
+                {...config}
+                style={{ height: 'calc(100% - 80px)', width: '100%' }}
+              />
             </div>
-            <Line {...config} style={{ height: 'calc(100% - 66px)' }} />
           </div>
         </div>
-        <Footer />
+        {/* <div className="home_charts">
+          <div className="charts_left home_people">
+            <h2>Welcome Back</h2>
+            <p>网站/App 访问/下载量:</p>
+            <div className="charts_left_line">
+              <Line {...config} />
+            </div>
+          </div>
+          
+          
+        </div> */}
       </div>
     </>
   );

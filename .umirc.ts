@@ -26,8 +26,8 @@ export default defineConfig({
           component:'@/pages/data.jsx'
         },
         {
-          path:"/video",
-          component:"@/pages/video.jsx"
+          path:"/appUser",
+          component:"@/pages/appUser.jsx"
         },
         {
           path:"/set",

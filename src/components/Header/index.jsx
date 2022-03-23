@@ -49,7 +49,7 @@ const AppHeader = (props) => {
   );
   return (
     <>
-      <p>{title}</p>
+      <p></p>
       <div className="app_header_div">
         <Badge dot={dotFlag}>
           <BellOutlined style={{ fontSize: 16 }} />

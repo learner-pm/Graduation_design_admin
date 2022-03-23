@@ -1,6 +1,14 @@
 import React from 'react';
+import Information from './information';
+import InformationTable from './table';
+
 const SetIndex = (props) => {
-  return <>1sa1d2sa1d65sa1d56as45</>;
+  return (
+    <>
+      <Information />
+      <InformationTable />
+    </>
+  );
 };
 
 export default SetIndex;

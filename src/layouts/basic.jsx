@@ -9,6 +9,7 @@ import {
   VideoCameraOutlined,
   LineChartOutlined,
   FileSearchOutlined,
+  SettingOutlined,
   AppstoreOutlined,
   MailOutlined,
   SettingOutlined,
@@ -44,7 +45,7 @@ const Basis = (props) => {
   const menuClick = ({ item, key, keyPath, domEvent }) => {
     //console.log(item);
     //console.log(key);
-    setTitle(key);
+    // setTitle(key);
     if (key.includes('data')) history.push('/data');
     else history.push(`/${key}`);
   };
@@ -72,24 +73,24 @@ const Basis = (props) => {
               onClick={menuClick}
               defaultSelectedKeys={['home']}
             >
-              <Menu.Item key="home" icon={<UserOutlined />}>
+              <Menu.Item key="Home" icon={<UserOutlined />}>
                 首页
               </Menu.Item>
-              <SubMenu key="data" icon={<LineChartOutlined />} title="流量">
-                <Menu.Item key="data_1">Option 1</Menu.Item>
-                <Menu.Item key="data_2">Option 2</Menu.Item>
-                <Menu.Item key="data_3">Option 3</Menu.Item>
-                <Menu.Item key="data_4">Option 4</Menu.Item>
+              <SubMenu key="Data" icon={<LineChartOutlined />} title="APP">
+                <Menu.Item key="data_1">信息情况</Menu.Item>
+                <Menu.Item key="data_2">视频文章</Menu.Item>
+                <Menu.Item key="data_3">Run</Menu.Item>
+                {/* <Menu.Item key="data_4"></Menu.Item> */}
               </SubMenu>
 
-              <Menu.Item key="video" icon={<FileSearchOutlined />}>
+              <Menu.Item key="AppUser" icon={<FileSearchOutlined />}>
                 用户
               </Menu.Item>
-              <Menu.Item key="upload" icon={<UploadOutlined />}>
-                上传
-              </Menu.Item>
-              <Menu.Item key="set" icon={<UserOutlined />}>
-                设置
+              {/* <Menu.Item key="Upload" icon={<UploadOutlined />}>
+                文件中心
+              </Menu.Item> */}
+              <Menu.Item key="Set" icon={<SettingOutlined />}>
+                系统
               </Menu.Item>
             </Menu>
           </Sider>
