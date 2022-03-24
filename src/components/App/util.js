@@ -1,26 +1,39 @@
 import { Table, Tag, Space } from 'antd';
 const columns = [
   {
-    title: '名字',
+    title: '用户名',
     dataIndex: 'name',
     key: 'name',
     render: (text) => <a>{text}</a>,
   },
   {
-    title: '上次登录时间',
+    title: '用户年龄',
     dataIndex: 'age',
     key: 'age',
     sorter: (a, b) => a.age - b.age,
   },
   {
-    title: 'ip',
-    dataIndex: 'address',
-    key: 'address',
+    title: '用户性别',
+    dataIndex: 'sex',
+    key: 'sex',
+  },
+  {
+    title: '留言内容',
+    dataIndex: 'content',
+    key: 'content',
+    ellipsis: true,
+    width: 150,
+  },
+  {
+    title: '时间',
+    dataIndex: 'time',
+    key: 'time',
   },
   {
     title: 'Tags',
     key: 'tags',
     dataIndex: 'tags',
+    width: 200,
     render: (tags) => (
       <>
         {tags.map((tag) => {
@@ -40,9 +53,10 @@ const columns = [
   {
     title: 'Action',
     key: 'action',
+    fixed: 'right',
     render: (text, record) => (
       <Space size="middle">
-        <a>修改密码</a>
+        <a>查看</a>
         <a>删除</a>
       </Space>
     ),
@@ -54,7 +68,9 @@ const data = [
     key: '0',
     name: 'John Brown',
     age: 32,
-    address: 'New York No. 1 Lake Park',
+    sex: '男',
+    time: '2020 02 16',
+    content: 'New York No. 1 Lake Park',
     tags: ['nice', 'developer'],
   },
 ];
@@ -64,7 +80,9 @@ for (let i = 1; i < 40; i++) {
     key: i,
     name: 'John Brown' + i,
     age: 32 + i,
-    address: 'New York No. 1 Lake Park',
+    sex: i % 2 === 0 ? '男' : '女',
+    time: '2020 02 16',
+    content: 'New York No. 1 Lake Park',
     tags: ['nice', 'developer'],
   });
 }

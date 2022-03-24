@@ -21,7 +21,7 @@ const AppHeader = (props) => {
           rel="noopener noreferrer"
           href="https://www.antgroup.com"
         >
-          修改个人资料
+          个人资料
         </a>
       </Menu.Item>
       <Menu.Item>

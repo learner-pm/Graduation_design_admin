@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style/basic.less';
 import { history } from 'umi';
-import { Layout, Menu, Button } from 'antd';
+import { Layout, Menu, Button, Spin } from 'antd';
 import AppHeader from '../components/Header';
+import Time from './time';
 import {
   UploadOutlined,
   UserOutlined,
@@ -12,16 +13,39 @@ import {
   SettingOutlined,
   AppstoreOutlined,
   MailOutlined,
-  SettingOutlined,
 } from '@ant-design/icons';
-import { useTime } from '../hooks/useTime';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
+
 const Basis = (props) => {
-  const { children } = props;
+  const { children, location } = props;
+
+  console.log(location);
   const [title, setTitle] = useState('首页');
-  const time = useTime();
+  const [selectedKeys, setSelectedKeys] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (loading)
+      setTimeout(() => {
+        setLoading(!loading);
+      }, 500);
+  }, [loading]);
+  useEffect(() => {
+    const path = location.pathname.replace('/', '');
+    if (path.indexOf('app') !== -1) {
+      const open = path.split('/');
+      setOpenKeys(() => {
+        return ['App'];
+      });
+      setSelectedKeys(() => path);
+    } else {
+      setSelectedKeys(() => {
+        return [path];
+      });
+    }
+  }, []);
+
   const listen = history.listen((location, action) => {
     //路由拦截
     if (location.pathname === '/home') {
@@ -31,10 +55,10 @@ const Basis = (props) => {
     }
   });
 
-  const [openKeys, setOpenKeys] = useState(['home']);
-  const rootSubmenuKeys = ['home', 'sub1', '2', '3', '4'];
+  const [openKeys, setOpenKeys] = useState([]);
+  const rootSubmenuKeys = ['App'];
   const onOpenChange = (keys) => {
-    //console.log(keys);
+    console.log(keys);
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
       setOpenKeys(keys);
@@ -46,9 +70,17 @@ const Basis = (props) => {
     //console.log(item);
     //console.log(key);
     // setTitle(key);
-    if (key.includes('data')) history.push('/data');
-    else history.push(`/${key}`);
+    //if (key.includes('data')) history.push('/data');
+    //else history.push(`/${key}`);
+    setSelectedKeys(() => {
+      return [key];
+    });
+    //const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+
+    setLoading(!loading);
+    history.push(`/${key}`);
   };
+
   return (
     <>
       <div className="app_basic">
@@ -72,24 +104,25 @@ const Basis = (props) => {
               onOpenChange={onOpenChange}
               onClick={menuClick}
               defaultSelectedKeys={['home']}
+              selectedKeys={selectedKeys}
             >
-              <Menu.Item key="Home" icon={<UserOutlined />}>
+              <Menu.Item key="home" icon={<UserOutlined />}>
                 首页
               </Menu.Item>
-              <SubMenu key="Data" icon={<LineChartOutlined />} title="APP">
-                <Menu.Item key="data_1">信息情况</Menu.Item>
-                <Menu.Item key="data_2">视频文章</Menu.Item>
-                <Menu.Item key="data_3">Run</Menu.Item>
+              <SubMenu key="App" icon={<LineChartOutlined />} title="APP">
+                <Menu.Item key="app">信息情况</Menu.Item>
+                <Menu.Item key="app/resoures">视频文章</Menu.Item>
+                <Menu.Item key="app/run">Run</Menu.Item>
                 {/* <Menu.Item key="data_4"></Menu.Item> */}
               </SubMenu>
 
-              <Menu.Item key="AppUser" icon={<FileSearchOutlined />}>
+              <Menu.Item key="user" icon={<FileSearchOutlined />}>
                 用户
               </Menu.Item>
               {/* <Menu.Item key="Upload" icon={<UploadOutlined />}>
                 文件中心
               </Menu.Item> */}
-              <Menu.Item key="Set" icon={<SettingOutlined />}>
+              <Menu.Item key="set" icon={<SettingOutlined />}>
                 系统
               </Menu.Item>
             </Menu>
@@ -102,16 +135,25 @@ const Basis = (props) => {
               <AppHeader title={title} />
             </Header>
             <Content style={{ margin: '24px 16px 0' }}>
-              <div className="site-layout-background">{children}</div>
+              {loading ? (
+                <div
+                  style={{
+                    height: '100%',
+                    width: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-around',
+                  }}
+                >
+                  <Spin tip="Loading..." size="large" />
+                </div>
+              ) : (
+                <div className="site-layout-background">{children}</div>
+              )}
             </Content>
             <Footer style={{ textAlign: 'center' }}>
               <div className="layout_footer">
-                <p>
-                  <span> IP</span>: 124.12.12.0
-                </p>
-                <p>
-                  <span>Time</span>:{time}
-                </p>
+                <Time />
               </div>
               MIT Licensed | Copyright © 2021-present PengMao{' '}
               <a

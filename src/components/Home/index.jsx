@@ -86,7 +86,7 @@ const Home = (props) => {
           <div className="home_charts">
             <p className="home_charts_text">用户年龄分布情况：</p>
             <div className="home_charts_div">
-              <Pie {...pieConfig} style={{ height: '90%', width: '100%' }} />
+              <Pie {...pieConfig} />
             </div>
             {/* <div className="charts_right_line_two  mid">
               <Column
@@ -106,14 +106,19 @@ const Home = (props) => {
         <div className="home_div" style={{ height: '60%' }}>
           <div className="home_charts_line">
             <div className="home_charts_line_div">
-              <div>
+              <div className="home_charts_line_title">
                 <p>网站/App 访问/下载量:</p>
                 <Button type="primary">更多</Button>
               </div>
-              <Line
-                {...config}
-                style={{ height: 'calc(100% - 80px)', width: '100%' }}
-              />
+              <div
+                style={{
+                  height: 'calc(100% - 40px)',
+                  width: '100%',
+                  padding: '10px 20px',
+                }}
+              >
+                <Line {...config} />
+              </div>
             </div>
           </div>
         </div>

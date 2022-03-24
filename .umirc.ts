@@ -8,35 +8,55 @@ export default defineConfig({
     {
       path: '/',
       component: '@/layouts/index.jsx',
+      title:"登录",
       routes: [
         {
           path: '/',
           component: '@/pages/login.jsx',
+          title:"登录",
         },
         {
           path: '/login',
           component: '@/pages/login.jsx',
+          title:"登录",
         },
         {
           path: '/home',
           component: '@/pages/index.jsx',
+          title:"首页",
+        },
+        // {
+        //   path:'/app',
+        //   //component:'@/pages/app.jsx',
+        //   routes:[
+
+        //   ]
+        // },
+        {
+          path: '/app',
+          component: '@/pages/app.jsx',
+          title:"App",
         },
         {
-          path:'/data',
-          component:'@/pages/data.jsx'
+          path: '/app/resoures',
+          component: '@/pages/app_resoures.jsx',
+          title:"视频和文章",
         },
         {
-          path:"/appUser",
-          component:"@/pages/appUser.jsx"
+          path: '/app/run',
+          component: '@/pages/app_run.jsx',
+          title:"Run",
         },
         {
-          path:"/set",
-          component:"@/pages/set.jsx"
+          path: '/user',
+          component: '@/pages/user.jsx',
+          title:"用户",
         },
         {
-          path:"/upload",
-          component:"@/pages/upload.jsx"
-        }
+          path: '/set',
+          component: '@/pages/set.jsx',
+          title:"设置",
+        },
       ],
     },
   ],

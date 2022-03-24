@@ -9,7 +9,7 @@ const LayoutsPage = (props) => {
 
   return (
     <>
-      <Basis>{children}</Basis>
+      <Basis location={location}>{children}</Basis>
     </>
   );
 };

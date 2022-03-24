@@ -2,7 +2,9 @@ import { getAllArtic } from '../api/test';
 
 export default {
   namespace: 'global',
-  state: {},
+  state: {
+    isLoading: true,
+  },
   effects: {
     *test({ payload }, { call }) {
       //console.log(123);

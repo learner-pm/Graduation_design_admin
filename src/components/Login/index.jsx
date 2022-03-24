@@ -123,7 +123,7 @@ const Login = (props) => {
                   htmlType="submit"
                   style={{ width: '100%' }}
                 >
-                  Submit
+                  Sign In
                 </Button>
               </Form.Item>
             </Form>
