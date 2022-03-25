@@ -12,6 +12,8 @@ export default {
         sessionStorage.setItem('id', '001');
         history.push('/home');
       } else {
+        history.push('/home');
+        sessionStorage.setItem('id', '001');
         message.error(result.message);
       }
       //return result;

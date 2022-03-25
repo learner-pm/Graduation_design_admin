@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from 'antd';
+import { Button, Tabs } from 'antd';
 import { Line, Pie, Column, Bar } from '@ant-design/plots';
 import './index.less';
 import { lineData, columnData, pieData, barData } from './util';
 import Footer from './Footer';
 import WelcomeBack from './homeBack';
-
+import HomeTotal from './homeTotal';
+import { Title } from '../Common';
+const { TabPane } = Tabs;
+import WebsiteList from './websiteList';
+import AppList from './appList';
 const Home = (props) => {
   const { dispatch } = props;
 
@@ -77,10 +81,14 @@ const Home = (props) => {
       },
     },
   };
+  const callback = (key) => {
+    console.log(key);
+  };
   return (
     <>
       <div className="home">
-        <div className="home_div" style={{ height: '40%' }}>
+        <HomeTotal />
+        {/* <div className="home_div" style={{ height: '40%' }}>
           <WelcomeBack />
 
           <div className="home_charts">
@@ -88,12 +96,6 @@ const Home = (props) => {
             <div className="home_charts_div">
               <Pie {...pieConfig} />
             </div>
-            {/* <div className="charts_right_line_two  mid">
-              <Column
-                {...columnConfig}
-                style={{ height: '100%', width: '100%' }}
-              />
-            </div> */}
           </div>
 
           <div className="home_charts" style={{ width: '33%' }}>
@@ -102,37 +104,38 @@ const Home = (props) => {
               <Bar {...barConfig} style={{ height: '86%', width: '100%' }} />
             </div>
           </div>
-        </div>
-        <div className="home_div" style={{ height: '60%' }}>
-          <div className="home_charts_line">
-            <div className="home_charts_line_div">
-              <div className="home_charts_line_title">
-                <p>网站/App 访问/下载量:</p>
-                <Button type="primary">更多</Button>
-              </div>
-              <div
-                style={{
-                  height: 'calc(100% - 40px)',
-                  width: '100%',
-                  padding: '10px 20px',
-                }}
-              >
-                <Line {...config} />
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* <div className="home_charts">
-          <div className="charts_left home_people">
-            <h2>Welcome Back</h2>
-            <p>网站/App 访问/下载量:</p>
-            <div className="charts_left_line">
-              <Line {...config} />
-            </div>
-          </div>
-          
-          
         </div> */}
+        <div className="home_div" style={{ height: 'calc(100% - 220px)' }}>
+          <div className="home_website">
+            <Title
+              title="网站/App"
+              // action={<Button type="primary">更多</Button>}
+            />
+            <div
+              style={{
+                height: 'calc(100% - 60px)',
+                width: '100%',
+                padding: '20px',
+              }}
+            >
+              <Line style={{ width: '100%', height: '100%' }} {...config} />
+            </div>
+          </div>
+          <div className="home_website_total">
+            <Tabs
+              defaultActiveKey="1"
+              onChange={callback}
+              style={{ height: '100%', padding: '0 20px' }}
+            >
+              <TabPane tab="网站" key="1" style={{ height: '100%' }}>
+                <WebsiteList />
+              </TabPane>
+              <TabPane tab="APP" key="2">
+                <AppList />
+              </TabPane>
+            </Tabs>
+          </div>
+        </div>
       </div>
     </>
   );

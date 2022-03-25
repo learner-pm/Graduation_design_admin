@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './style/basic.less';
 import { history } from 'umi';
-import { Layout, Menu, Button, Spin } from 'antd';
+import { Layout, Menu, Button, Spin, Breadcrumb } from 'antd';
 import AppHeader from '../components/Header';
 import Time from './time';
 import {
@@ -18,6 +18,15 @@ import {
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
+const urlMap = {
+  home: '首页',
+  app: 'App',
+  resoures: '视频文章',
+  run: '运动',
+  user: '用户',
+  set: '设置',
+};
+
 const Basis = (props) => {
   const { children, location } = props;
 
@@ -25,11 +34,17 @@ const Basis = (props) => {
   const [title, setTitle] = useState('首页');
   const [selectedKeys, setSelectedKeys] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [breadList, setBreadList] = useState([
+    {
+      id: 0,
+      ctn: '首页',
+    },
+  ]);
   useEffect(() => {
-    if (loading)
+    if (loading === true)
       setTimeout(() => {
         setLoading(!loading);
-      }, 500);
+      }, 600);
   }, [loading]);
   useEffect(() => {
     const path = location.pathname.replace('/', '');
@@ -75,6 +90,27 @@ const Basis = (props) => {
     setSelectedKeys(() => {
       return [key];
     });
+    setBreadList(() => {
+      const braArr = [];
+      if (key.indexOf('/') !== -1) {
+        const arr = key.split('/');
+        arr.forEach((e, index) => {
+          braArr.push({
+            id: index,
+            ctn: urlMap[e],
+          });
+        });
+        return braArr;
+      }
+      return [
+        {
+          id: 0,
+          ctn: urlMap[key],
+        },
+      ];
+
+      // arr[0] = arr[0].toUpperCase();
+    });
     //const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
 
     setLoading(!loading);
@@ -86,6 +122,7 @@ const Basis = (props) => {
       <div className="app_basic">
         <Layout style={{ height: '100%' }}>
           <Sider
+            style={{ background: '#fff' }}
             breakpoint="lg"
             collapsedWidth="0"
             onBreakpoint={(broken) => {
@@ -98,7 +135,7 @@ const Basis = (props) => {
             <div className="logo" />
 
             <Menu
-              theme="dark"
+              theme="light"
               mode="inline"
               openKeys={openKeys}
               onOpenChange={onOpenChange}
@@ -134,7 +171,7 @@ const Basis = (props) => {
             >
               <AppHeader title={title} />
             </Header>
-            <Content style={{ margin: '24px 16px 0' }}>
+            <Content>
               {loading ? (
                 <div
                   style={{
@@ -148,7 +185,30 @@ const Basis = (props) => {
                   <Spin tip="Loading..." size="large" />
                 </div>
               ) : (
-                <div className="site-layout-background">{children}</div>
+                <div className="site-layout-background">
+                  {/* style={{ margin: '24px 16px 0' }} */}
+                  <Breadcrumb
+                    style={{
+                      padding: '12px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      fontSize: '14px',
+                      height: 40,
+                    }}
+                  >
+                    {breadList.map((e) => (
+                      <Breadcrumb.Item
+                        key={e.id}
+                        style={{ color: '#00000073' }}
+                      >
+                        {e.ctn}
+                      </Breadcrumb.Item>
+                    ))}
+                  </Breadcrumb>
+                  <div style={{ padding: '12px', height: '100%' }}>
+                    {children}
+                  </div>
+                </div>
               )}
             </Content>
             <Footer style={{ textAlign: 'center' }}>

@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { history } from 'umi';
 import { Form, Input, Button, Checkbox, Image } from 'antd';
 import './style/login.less';
-import { useTime } from '../../hooks/useTime';
+import { sha256 } from 'js-sha256';
+import LoginDate from './loginDate';
 
 const Login = (props) => {
   const url = require('./image/login.jpg');
   const { dispatch } = props;
   const [email, setEmail] = useState(undefined);
   const [word, setWord] = useState(undefined);
-  const time = useTime();
+
   const getEmail = (e) => {
     setEmail(e.target.value);
     console.log(e.target.value);
@@ -36,7 +37,7 @@ const Login = (props) => {
         type: 'user/login',
         payload: {
           phone: values.username,
-          passWord: values.password,
+          passWord: sha256(values.password),
         },
       });
     }
@@ -56,8 +57,7 @@ const Login = (props) => {
         <div className="loginO_div">
           <div className="loginO_login">
             <h2>Desgin Object</h2>
-            <p>It is a system created by PengMao.</p>
-            <p>Time:{time}</p>
+            <LoginDate />
             <Form
               name="basic"
               layout={'vertical'}
