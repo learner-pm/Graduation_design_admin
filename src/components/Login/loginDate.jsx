@@ -5,7 +5,7 @@ const LoginDate = () => {
   return (
     <>
       <p>It is a system created by PengMao.</p>
-      <p>Time:{time}</p>
+      <p>{time}</p>
     </>
   );
 };

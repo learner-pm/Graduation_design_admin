@@ -1,8 +1,15 @@
 import React from 'react';
 import './style/index.less';
+import { Map } from './map';
 
 const AppRun = () => {
-  return <>1</>;
+  return (
+    <>
+      <div style={{ height: '100%' }}>
+        <Map />
+      </div>
+    </>
+  );
 };
 
 export default AppRun;

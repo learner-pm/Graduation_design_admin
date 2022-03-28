@@ -56,7 +56,7 @@ const Login = (props) => {
         <div className="loginO_back"></div>
         <div className="loginO_div">
           <div className="loginO_login">
-            <h2>Desgin Object</h2>
+            <h2>Graduation Design</h2>
             <LoginDate />
             <Form
               name="basic"
@@ -76,7 +76,7 @@ const Login = (props) => {
               style={{ width: '100%' }}
             >
               <Form.Item
-                label="Username"
+                label="用户名"
                 name="username"
                 rules={[
                   {
@@ -89,7 +89,7 @@ const Login = (props) => {
               </Form.Item>
 
               <Form.Item
-                label="Password"
+                label="密码"
                 name="password"
                 rules={[
                   {
@@ -123,19 +123,13 @@ const Login = (props) => {
                   htmlType="submit"
                   style={{ width: '100%' }}
                 >
-                  Sign In
+                  登 录
                 </Button>
               </Form.Item>
             </Form>
           </div>
           <footer className="login0_footer">
-            MIT Licensed | Copyright © 2021-present PengMao{' '}
-            <a
-              href="https://beian.miit.gov.cn/#/Integrated/index"
-              className="footer_a"
-            >
-              蜀ICP备20004855号-1
-            </a>
+            Copyright © 2022-now • Wrote and built by PengMao
           </footer>
         </div>
       </div>

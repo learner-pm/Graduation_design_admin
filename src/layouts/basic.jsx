@@ -215,13 +215,7 @@ const Basis = (props) => {
               <div className="layout_footer">
                 <Time />
               </div>
-              MIT Licensed | Copyright © 2021-present PengMao{' '}
-              <a
-                href="https://beian.miit.gov.cn/#/Integrated/index"
-                className="footer_a"
-              >
-                蜀ICP备20004855号-1
-              </a>
+              Copyright © 2022-now • Wrote and built by PengMao
             </Footer>
           </Layout>
         </Layout>
