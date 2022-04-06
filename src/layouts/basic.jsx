@@ -146,16 +146,20 @@ const Basis = (props) => {
               <Menu.Item key="home" icon={<UserOutlined />}>
                 首页
               </Menu.Item>
-              <SubMenu key="App" icon={<LineChartOutlined />} title="APP">
-                <Menu.Item key="app">信息情况</Menu.Item>
-                <Menu.Item key="app/resoures">视频文章</Menu.Item>
-                <Menu.Item key="app/run">Run</Menu.Item>
-                {/* <Menu.Item key="data_4"></Menu.Item> */}
-              </SubMenu>
-
               <Menu.Item key="user" icon={<FileSearchOutlined />}>
                 用户
               </Menu.Item>
+              <SubMenu key="App" icon={<LineChartOutlined />} title="APP">
+                <Menu.Item key="app">信息情况</Menu.Item>
+                <Menu.Item key="app/resoures">视频文章</Menu.Item>
+                <Menu.Item key="">圈子</Menu.Item>
+                {/* <Menu.Item key="app/run">Run</Menu.Item> */}
+              </SubMenu>
+
+              <SubMenu key="Data" icon={<LineChartOutlined />} title="数据">
+                <Menu.Item key="">数据分析</Menu.Item>
+                <Menu.Item key="app/run">跑步</Menu.Item>
+              </SubMenu>
               {/* <Menu.Item key="Upload" icon={<UploadOutlined />}>
                 文件中心
               </Menu.Item> */}
@@ -187,24 +191,36 @@ const Basis = (props) => {
               ) : (
                 <div className="site-layout-background">
                   {/* style={{ margin: '24px 16px 0' }} */}
-                  <Breadcrumb
+                  {/* <div
                     style={{
-                      padding: '12px',
                       display: 'flex',
                       alignItems: 'center',
                       fontSize: '14px',
-                      height: 40,
+                      margin: '0 12px',
+                      //padding: '0 12px',
+                      marginTop: 5,
+                      height: 34,
+                      //backgroundColor: 'white',
                     }}
                   >
-                    {breadList.map((e) => (
-                      <Breadcrumb.Item
-                        key={e.id}
-                        style={{ color: '#00000073' }}
-                      >
-                        {e.ctn}
-                      </Breadcrumb.Item>
-                    ))}
-                  </Breadcrumb>
+                    <Breadcrumb
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        height: '100%',
+                      }}
+                    >
+                      {breadList.map((e) => (
+                        <Breadcrumb.Item
+                          key={e.id}
+                          style={{ color: '#00000073' }}
+                        >
+                          {e.ctn}
+                        </Breadcrumb.Item>
+                      ))}
+                    </Breadcrumb>
+                  </div> */}
+
                   <div style={{ padding: '12px', height: '100%' }}>
                     {children}
                   </div>

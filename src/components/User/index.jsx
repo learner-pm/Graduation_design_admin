@@ -9,6 +9,7 @@ const User = (props) => {
   return (
     <>
       <div className="user_page">
+        <div></div>
         <Title title="用户数据" />
         <UserPageSearch />
         <UserPageTable />

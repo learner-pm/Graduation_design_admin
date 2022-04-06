@@ -10,7 +10,7 @@ const AppTable = () => {
   };
   return (
     <>
-      <div>
+      <div style={{ height: '100%' }}>
         <div className="app_table_title">用户反馈</div>
         <div className="app-table_search">
           <Space size={12}>
@@ -24,7 +24,7 @@ const AppTable = () => {
             columns={columns}
             dataSource={data}
             pagination={pagination}
-            scroll={{ y: 'calc((100vh - 440px)' }}
+            scroll={{ y: 'calc((100vh - 630px)' }}
           />
         </div>
       </div>

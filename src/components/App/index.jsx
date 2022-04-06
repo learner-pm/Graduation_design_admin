@@ -40,7 +40,22 @@ const App = () => {
           </div>
         </div>
         <div className="app_right">
-          <AppTable />
+          <div className="app_numbers">
+            <div className="app_numbers_div">
+              <p>下载量</p>
+            </div>
+            <div className="app_numbers_div">
+              <p>星级情况</p>
+            </div>
+            <div className="app_numbers_div">
+              <p>搜索热词</p>
+            </div>
+          </div>
+          <div
+            style={{ height: 'calc(100% - 200px)', backgroundColor: 'white' }}
+          >
+            <AppTable />
+          </div>
         </div>
       </div>
     </>

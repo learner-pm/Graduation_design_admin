@@ -59,7 +59,8 @@ const columns = [
     render: (text, record) => (
       <Space size="middle">
         <a>查看</a>
-        <a>删除</a>
+        <a style={{ color: 'red' }}>删除</a>
+        <a style={{ color: '#00000073' }}>封禁</a>
       </Space>
     ),
   },
