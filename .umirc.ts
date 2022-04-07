@@ -48,6 +48,11 @@ export default defineConfig({
           title:"Run",
         },
         {
+          path:"/app/tlak",
+          component: '@/pages/app_tlak.jsx',
+          title:"圈子"
+        },
+        {
           path: '/user',
           component: '@/pages/user.jsx',
           title:"用户",

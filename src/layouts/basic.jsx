@@ -25,6 +25,7 @@ const urlMap = {
   run: '运动',
   user: '用户',
   set: '设置',
+  tlak: '圈子',
 };
 
 const Basis = (props) => {
@@ -152,7 +153,7 @@ const Basis = (props) => {
               <SubMenu key="App" icon={<LineChartOutlined />} title="APP">
                 <Menu.Item key="app">信息情况</Menu.Item>
                 <Menu.Item key="app/resoures">视频文章</Menu.Item>
-                <Menu.Item key="">圈子</Menu.Item>
+                <Menu.Item key="app/tlak">圈子</Menu.Item>
                 {/* <Menu.Item key="app/run">Run</Menu.Item> */}
               </SubMenu>
 
@@ -195,7 +196,6 @@ const Basis = (props) => {
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      fontSize: '14px',
                       margin: '0 12px',
                       //padding: '0 12px',
                       marginTop: 5,
@@ -213,7 +213,7 @@ const Basis = (props) => {
                       {breadList.map((e) => (
                         <Breadcrumb.Item
                           key={e.id}
-                          style={{ color: '#00000073' }}
+                          style={{ color: '#00000073', fontSize: '16px' }}
                         >
                           {e.ctn}
                         </Breadcrumb.Item>
@@ -221,7 +221,7 @@ const Basis = (props) => {
                     </Breadcrumb>
                   </div> */}
 
-                  <div style={{ padding: '12px', height: '100%' }}>
+                  <div style={{ padding: '12px', height: 'calc(100% - 0px)' }}>
                     {children}
                   </div>
                 </div>

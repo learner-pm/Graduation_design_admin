@@ -1,5 +1,11 @@
-import { Table, Tag, Space } from 'antd';
-const columns = [
+import { Tag, Space } from 'antd';
+const artColumns = [
+  {
+    title: '用户名',
+    dataIndex: 'name',
+    key: 'name',
+    render: (text) => <a>{text}</a>,
+  },
   {
     title: 'Uuid',
     dataIndex: 'uuid',
@@ -60,7 +66,7 @@ const columns = [
   },
 ];
 
-const data = [
+const artData = [
   {
     key: '0',
     name: 'John Brown',
@@ -74,7 +80,7 @@ const data = [
 ];
 
 for (let i = 1; i < 40; i++) {
-  data.push({
+  artData.push({
     key: i,
     name: 'John Brown' + i,
     uuid: 'dsadsa0dsa12da0' + i,
@@ -85,4 +91,4 @@ for (let i = 1; i < 40; i++) {
     tags: [i % 2 === 0 ? 0 : 1],
   });
 }
-export { columns, data };
+export { artColumns, artData };

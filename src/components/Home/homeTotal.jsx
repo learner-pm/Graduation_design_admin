@@ -98,7 +98,7 @@ const HomeTotal = () => {
               <Area style={{ width: '100%', height: '100%' }} {...appConfig} />
             </div>
           </div>
-          <div className="home_total_div_footer">日下载量：10</div>{' '}
+          <div className="home_total_div_footer">日下载量：10</div>
         </div>
         <div className="home_total_div">
           <div className="home_total_div_number">
