@@ -87,6 +87,7 @@ const Home = (props) => {
   return (
     <>
       <div className="home">
+        <p className="link">首页</p>
         <HomeTotal />
         {/* <div className="home_div" style={{ height: '40%' }}>
           <WelcomeBack />

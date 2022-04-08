@@ -8,22 +8,22 @@ export default defineConfig({
     {
       path: '/',
       component: '@/layouts/index.jsx',
-      title:"登录",
+      title: '登录',
       routes: [
         {
           path: '/',
           component: '@/pages/login.jsx',
-          title:"登录",
+          title: '登录',
         },
         {
           path: '/login',
           component: '@/pages/login.jsx',
-          title:"登录",
+          title: '登录',
         },
         {
           path: '/home',
           component: '@/pages/index.jsx',
-          title:"首页",
+          title: '首页',
         },
         // {
         //   path:'/app',
@@ -35,32 +35,42 @@ export default defineConfig({
         {
           path: '/app',
           component: '@/pages/app.jsx',
-          title:"App",
+          title: 'App',
         },
         {
           path: '/app/resoures',
           component: '@/pages/app_resoures.jsx',
-          title:"视频和文章",
+          title: '视频和文章',
         },
         {
           path: '/app/run',
           component: '@/pages/app_run.jsx',
-          title:"Run",
+          title: 'Run',
         },
         {
-          path:"/app/tlak",
+          path: '/app/tlak',
           component: '@/pages/app_tlak.jsx',
-          title:"圈子"
+          title: '圈子',
         },
         {
           path: '/user',
           component: '@/pages/user.jsx',
-          title:"用户",
+          title: '用户',
+        },
+        {
+          path: '/data/list',
+          component: '@/pages/data_list.jsx',
+          title: '数据分析',
+        },
+        {
+          path: '/data/run',
+          component: '@/pages/data_run.jsx',
+          title: '跑步分析',
         },
         {
           path: '/set',
           component: '@/pages/set.jsx',
-          title:"设置",
+          title: '设置',
         },
       ],
     },

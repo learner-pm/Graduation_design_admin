@@ -7,7 +7,7 @@ const SetIndex = (props) => {
   return (
     <>
       <SetAction />
-      {/* <Information /> */}
+      <Information />
       <InformationTable />
     </>
   );

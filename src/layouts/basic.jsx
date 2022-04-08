@@ -158,8 +158,8 @@ const Basis = (props) => {
               </SubMenu>
 
               <SubMenu key="Data" icon={<LineChartOutlined />} title="数据">
-                <Menu.Item key="">数据分析</Menu.Item>
-                <Menu.Item key="app/run">跑步</Menu.Item>
+                <Menu.Item key="data/list">数据分析</Menu.Item>
+                <Menu.Item key="data/run">跑步</Menu.Item>
               </SubMenu>
               {/* <Menu.Item key="Upload" icon={<UploadOutlined />}>
                 文件中心
@@ -221,7 +221,9 @@ const Basis = (props) => {
                     </Breadcrumb>
                   </div> */}
 
-                  <div style={{ padding: '12px', height: 'calc(100% - 0px)' }}>
+                  <div
+                    style={{ padding: '0 12px', height: 'calc(100% - 0px)' }}
+                  >
                     {children}
                   </div>
                 </div>

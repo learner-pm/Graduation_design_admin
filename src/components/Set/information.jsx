@@ -1,15 +1,18 @@
 import React from 'react';
 import './style/index.less';
 import { Image, Button } from 'antd';
+import { Title } from '../Common';
 
 const Information = () => {
   const img = require('./img/my.jpg');
   return (
     <>
       <div className="set_information">
-        <p>
-          管理员信息 <Button type="primary">修改密码</Button>
-        </p>
+        <Title
+          title="管理员信息"
+          action={<Button type="primary">修改密码</Button>}
+        />
+
         <div className="set_information_div">
           <div className="set_information_div_left">
             <div>
