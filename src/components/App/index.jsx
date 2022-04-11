@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './style/index.less';
 import { Timeline, Button } from 'antd';
-import { ClockCircleOutlined } from '@ant-design/icons';
+import { ClockCircleOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import { Line } from '@ant-design/plots';
 import AppTable from './appTable';
 import { Area, Column } from '@ant-design/plots';
+import { Title } from '../Common/index';
+import AppSearch from './appSearch';
+import AppEdition from './appEdition';
+
 const App = () => {
   const [appData, setAppData] = useState([]);
   useEffect(() => {
@@ -64,52 +68,50 @@ const App = () => {
     minColumnWidth: 20,
     maxColumnWidth: 20,
   };
-  const hostKeyList = [];
-  for (let i = 0; i < 10; i++) {
-    hostKeyList.push({
-      id: i,
-      ctn: '内容' + i,
-      index: i,
-    });
-  }
+
   return (
     <>
       <div className="app">
         <div className="app_left">
-          <div className="app_edition">
-            <p>App迭代</p>
-            <div className="app_edition_div">
-              <Timeline mode="alternate">
-                <Timeline.Item>发布最新版本 2.1.9 2015-09-01</Timeline.Item>
-                <Timeline.Item color="green">
-                  fix bug in 2.1.4 2015-09-01
-                </Timeline.Item>
-                <Timeline.Item
-                  dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />}
-                >
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium, totam rem aperiam, eaque
-                  ipsa quae ab illo inventore veritatis et quasi architecto
-                  beatae vitae dicta sunt explicabo.
-                </Timeline.Item>
-                <Timeline.Item color="red">
-                  App视频播放错误 2015-09-01
-                </Timeline.Item>
-                <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
-                <Timeline.Item
-                  dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />}
-                >
-                  Technical testing 2015-09-01
-                </Timeline.Item>
-              </Timeline>
+          <div className="app_information">
+            <div
+              style={{
+                //justifyContent: 'flex-start',
+                height: '47px',
+                //borderTop: '1px solid #f0f2f5',
+                padding: '0 12px',
+                color: 'rgba(0, 0, 0, 0.45)',
+              }}
+            >
+              App简述
+              <InfoCircleOutlined />
+            </div>
+            <div style={{ display: 'block', padding: ' 0px 12px 12px 12px' }}>
+              <p>
+                <span> App名称：</span>Running
+              </p>
+              <p>
+                <span>App类型：</span>提供一个运动分析的平台工具
+              </p>
+              <div>
+                <p>
+                  <span>开发时间：</span>2022/2/10
+                </p>
+                <p>
+                  <span>当前版本：</span>0.0.1.bate
+                </p>
+              </div>
             </div>
           </div>
+          <AppEdition />
         </div>
         <div className="app_right">
           <div className="app_numbers">
             <div className="app_numbers_div">
               <div className="home_total_div_number">
-                <p style={{ padding: 0 }}>App下载量</p>
+                <p style={{ padding: 0 }}>
+                  App下载量 <InfoCircleOutlined />
+                </p>
                 <p style={{ padding: 0 }}>4,560</p>
                 <div className="home_total_div_number_div">
                   <Area
@@ -121,7 +123,15 @@ const App = () => {
               <div className="home_total_div_footer">日下载量：10</div>
             </div>
             <div className="app_numbers_div">
-              <p>星级情况</p>
+              <p
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+              >
+                星级情况 <InfoCircleOutlined />
+              </p>
               <div style={{ height: 'calc(100% - 50px)', padding: '4px 12px' }}>
                 <Column
                   style={{ width: '100%', height: '100%' }}
@@ -129,38 +139,7 @@ const App = () => {
                 />
               </div>
             </div>
-            <div className="app_numbers_div">
-              <p
-                style={{
-                  fontSize: 16,
-                  borderBottom: '1px solid #e8e9eb',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                热词
-                <Button type="primary" size="small">
-                  更多
-                </Button>
-              </p>
-              <div className="host_list">
-                {hostKeyList.map((e) => (
-                  <p
-                    key={e.id}
-                    style={{
-                      padding: '0 20px',
-                      margin: 0,
-                      height: '28px',
-                      lineHeight: '28px',
-                      marginBottom: '2px',
-                    }}
-                  >
-                    <span>{e.index} :</span> {e.ctn}
-                  </p>
-                ))}
-              </div>
-            </div>
+            <AppSearch />
           </div>
           <div
             style={{ height: 'calc(100% - 190px)', backgroundColor: 'white' }}

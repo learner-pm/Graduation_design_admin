@@ -1,5 +1,7 @@
 import { fetch } from 'dva';
 import fet from '../util/request';
+import url from '../util/urls/index';
+console.log(url.get('global').login);
 // console.log(fet);
 // fet
 //   .get({

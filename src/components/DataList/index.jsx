@@ -13,8 +13,11 @@ import {
   Switch,
   Space,
 } from 'antd';
+import { DoubleRightOutlined } from '@ant-design/icons';
 import { Title } from '../Common/index';
-import { Column } from '@ant-design/plots';
+import { Column, Pie } from '@ant-design/plots';
+import BodyList from './bodyList';
+import DataRun from './dataRun';
 
 const DataList = () => {
   const data = [
@@ -55,6 +58,53 @@ const DataList = () => {
       },
     },
   };
+  const pieData = [
+    {
+      type: '分类一',
+      value: 27,
+    },
+    {
+      type: '分类二',
+      value: 25,
+    },
+    {
+      type: '分类三',
+      value: 18,
+    },
+    {
+      type: '分类四',
+      value: 15,
+    },
+    {
+      type: '分类五',
+      value: 10,
+    },
+    {
+      type: '其他',
+      value: 5,
+    },
+  ];
+  const pieConfig = {
+    appendPadding: 10,
+    data: pieData,
+    angleField: 'value',
+    colorField: 'type',
+    radius: 0.9,
+    label: {
+      type: 'inner',
+      offset: '-30%',
+      content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
+      style: {
+        fontSize: 14,
+        textAlign: 'center',
+      },
+    },
+    interactions: [
+      {
+        type: 'element-active',
+      },
+    ],
+  };
   return (
     <>
       <div className="data_list">
@@ -72,7 +122,10 @@ const DataList = () => {
           >
             评断的基本参数
           </p>
-          <div className="data_list_form">
+          <div className="data_list_form" style={{ position: 'relative' }}>
+            {/* <div style={{ position: 'absolute', left: '120%', top: '10%' }}>
+              <DoubleRightOutlined />
+            </div> */}
             <Form
               layout="horizontal"
               initialValues={{
@@ -80,19 +133,26 @@ const DataList = () => {
               }}
               size="default"
             >
-              <Form.Item label="身高">
-                <Input />
-              </Form.Item>
-              <Form.Item label="体重">
-                <Input />
-              </Form.Item>
-
-              <Form.Item label="年龄">
-                <Input />
-              </Form.Item>
-              <Space>
+              <Space size={'small'}>
+                <Form.Item label="模板名" style={{ width: 140 }}>
+                  <Input />
+                </Form.Item>
                 <Form.Item label="误差">
                   <InputNumber />
+                </Form.Item>
+              </Space>
+              <Space size={'small'}>
+                <Form.Item label="身高" style={{ width: 140 }}>
+                  <Input />
+                </Form.Item>
+                <Form.Item label="体重">
+                  <Input />
+                </Form.Item>
+              </Space>
+
+              <Space size={'small'}>
+                <Form.Item label="年龄" style={{ width: 140 }}>
+                  <Input />
                 </Form.Item>
                 <Form.Item label="性别" valuePropName="sex">
                   <Switch />
@@ -111,7 +171,9 @@ const DataList = () => {
             </Form>
           </div>
         </div>
-        <div className="data_list_div"></div>
+        <div className="data_list_div">
+          <BodyList />
+        </div>
         <div className="data_list_div">
           <Title title="健康度" />
           <p
@@ -132,11 +194,14 @@ const DataList = () => {
         </div>
         <div className="data_list_div">
           <Title title="年龄图表" />
-          <div></div>
+          <div className="data_list_div_charts">
+            <Pie {...pieConfig} style={{ height: '100%' }} />
+          </div>
         </div>
       </div>
       <div className="data_run">
         <Title title=" 跑步数据" />
+        <DataRun />
       </div>
     </>
   );

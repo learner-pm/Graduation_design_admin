@@ -39,7 +39,7 @@ const _fetch = async (url, data, init, type) => {
   if (!isObject(data)) return;
   if (!isObject(init)) return;
   const headers = { ...Init.headers };
-  console.log(type);
+  //console.log(type);
 
   if (headers in init) appendHeaders(init.headers, headers);
   const res = await fetch(url, {
@@ -76,10 +76,10 @@ const addMethods = (obj, arr) => {
 class Http {
   constructor() {
     if (window.fetch) {
-      console.log('使用封装后的fetch');
+      // console.log('使用封装后的fetch');
       this._fetch();
     } else {
-      console.log('启用xhr');
+      //console.log('启用xhr');
       this._xhr();
     }
   }

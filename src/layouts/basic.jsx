@@ -156,11 +156,13 @@ const Basis = (props) => {
                 <Menu.Item key="app/tlak">圈子</Menu.Item>
                 {/* <Menu.Item key="app/run">Run</Menu.Item> */}
               </SubMenu>
-
-              <SubMenu key="Data" icon={<LineChartOutlined />} title="数据">
+              <Menu.Item key="data/list" icon={<LineChartOutlined />}>
+                数据分析
+              </Menu.Item>
+              {/* <SubMenu key="Data" icon={<LineChartOutlined />} title="数据">
                 <Menu.Item key="data/list">数据分析</Menu.Item>
                 <Menu.Item key="data/run">跑步</Menu.Item>
-              </SubMenu>
+              </SubMenu> */}
               {/* <Menu.Item key="Upload" icon={<UploadOutlined />}>
                 文件中心
               </Menu.Item> */}
@@ -222,7 +224,7 @@ const Basis = (props) => {
                   </div> */}
 
                   <div
-                    style={{ padding: '0 12px', height: 'calc(100% - 0px)' }}
+                    style={{ padding: '12px 12px', height: 'calc(100% - 0px)' }}
                   >
                     {children}
                   </div>

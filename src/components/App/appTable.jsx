@@ -2,6 +2,8 @@ import React from 'react';
 import { Table, Input, Space, DatePicker, Button } from 'antd';
 import { columns, data } from './util';
 const { RangePicker } = DatePicker;
+import { Title } from '../Common';
+
 const AppTable = () => {
   const pagination = {
     defaultCurrent: 1,
@@ -11,7 +13,8 @@ const AppTable = () => {
   return (
     <>
       <div style={{ height: '100%' }}>
-        <div className="app_table_title">用户反馈</div>
+        <Title title="用户反馈" />
+        {/* <div className="app_table_title">用户反馈</div> */}
         <div className="app-table_search">
           <Space size={12}>
             <Input placeholder="输入关键字" style={{ width: 100 }} />
