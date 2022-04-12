@@ -2,12 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Progress } from 'antd';
 import { InfoCircleOutlined, CaretUpOutlined } from '@ant-design/icons';
 import { Area, Column } from '@ant-design/plots';
-const HomeTotal = () => {
+const HomeTotal = (props) => {
+  const { dispatch } = props;
   const [appData, setAppData] = useState([]);
+
   useEffect(() => {
     asyncFetch();
   }, []);
-
+  useEffect(() => {
+    const total = dispatch({
+      type: 'global/total',
+      payload: {},
+    });
+  }, [dispatch]);
   const asyncFetch = () => {
     fetch(
       'https://gw.alipayobjects.com/os/bmw-prod/360c3eae-0c73-46f0-a982-4746a6095010.json',

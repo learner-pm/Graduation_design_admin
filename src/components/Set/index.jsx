@@ -4,11 +4,12 @@ import InformationTable from './table';
 import SetAction from './setAction';
 
 const SetIndex = (props) => {
+  const { dispatch } = props;
   return (
     <>
-      <SetAction />
-      <Information />
-      <InformationTable />
+      <SetAction dispatch={dispatch} />
+      <Information dispatch={dispatch} />
+      <InformationTable dispatch={dispatch} />
     </>
   );
 };

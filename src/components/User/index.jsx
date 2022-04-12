@@ -16,10 +16,12 @@ const User = (props) => {
           <div></div>
           <Title title="用户列表" />
           <UserPageSearch />
-          <UserPageTable setPilot={setPilot} />
+          <UserPageTable setPilot={setPilot} dispatch={dispatch} />
         </div>
       )}
-      {pilot === 'userInformation' && <UserInformation setPilot={setPilot} />}
+      {pilot === 'userInformation' && (
+        <UserInformation setPilot={setPilot} dispatch={dispatch} />
+      )}
     </>
   );
 };

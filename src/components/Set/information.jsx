@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './style/index.less';
 import { Image, Button } from 'antd';
 import { Title } from '../Common';
 
-const Information = () => {
+const Information = (props) => {
+  const { dispatch } = props;
+  useEffect(() => {
+    const information = dispatch({
+      type: 'admin/getInformation',
+      payload: '',
+    });
+  }, []);
   const img = require('./img/my.jpg');
   return (
     <>

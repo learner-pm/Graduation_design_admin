@@ -13,6 +13,7 @@ import AppList from './appList';
 const Home = (props) => {
   const { dispatch } = props;
 
+  useEffect(() => {}, []);
   const barConfig = {
     data: barData,
     xField: 'value',
@@ -87,8 +88,8 @@ const Home = (props) => {
   return (
     <>
       <div className="home">
-        <p className="link">首页</p>
-        <HomeTotal />
+        {/* <p className="link">首页</p> */}
+        <HomeTotal dispatch={dispatch} />
         {/* <div className="home_div" style={{ height: '40%' }}>
           <WelcomeBack />
 
@@ -129,10 +130,10 @@ const Home = (props) => {
               style={{ height: '100%', padding: '0 20px' }}
             >
               <TabPane tab="网站" key="1" style={{ height: '100%' }}>
-                <WebsiteList />
+                {/* <WebsiteList /> */}
               </TabPane>
               <TabPane tab="APP" key="2">
-                <AppList />
+                {/* <AppList /> */}
               </TabPane>
             </Tabs>
           </div>

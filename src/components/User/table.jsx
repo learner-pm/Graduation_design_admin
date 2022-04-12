@@ -3,7 +3,13 @@ import { Table, Tag, Space } from 'antd';
 import { columns, data } from './util';
 
 const UserPageTable = (props) => {
-  const { setPilot } = props;
+  const { setPilot, dispatch } = props;
+  useEffect(() => {
+    const list = dispatch({
+      type: 'user/list',
+      payload: '',
+    });
+  }, []);
   const pagination = {
     defaultCurrent: 1,
     showSizeChanger: true,

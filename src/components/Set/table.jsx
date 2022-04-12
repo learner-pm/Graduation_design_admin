@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Table, Tag, Space, Button } from 'antd';
 import { columns, data } from './util';
 import { Title } from '../Common';
 import CreatAdmin from './creatAdmin';
 
-const InformationTable = () => {
+const InformationTable = (props) => {
+  const { dispatch } = props;
   const [creatAdminVisible, setCreatAdminVisible] = useState(false);
   const pagination = {
     defaultCurrent: 1,
@@ -14,6 +15,12 @@ const InformationTable = () => {
   const creatAdmin = () => {
     setCreatAdminVisible(true);
   };
+  useEffect(() => {
+    const list = dispatch({
+      type: 'admin/getList',
+      payload: '',
+    });
+  }, []);
   const action = () => (
     <Button type="primary" value="default" onClick={creatAdmin}>
       创建管理员

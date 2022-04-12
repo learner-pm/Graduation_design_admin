@@ -7,7 +7,11 @@ export default {
     },
     {
       type: 'getAllTotal',
-      url: '/',
+      url: '/home/getAllTotal',
+    },
+    {
+      type: 'getAppUsers',
+      url: '/home/getAppUsers',
     },
   ],
 };

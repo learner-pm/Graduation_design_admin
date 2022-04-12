@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { LeftOutlined } from '@ant-design/icons';
 import '../style/userInformation.less';
 import { Title } from '../../Common/index';
@@ -6,7 +6,13 @@ import { Title } from '../../Common/index';
 const img = require('./my.jpg');
 
 const UserInformation = (props) => {
-  const { setPilot } = props;
+  const { setPilot, dispatch } = props;
+  useEffect(() => {
+    const information = dispatch({
+      type: 'user/information',
+      payload: {},
+    });
+  }, []);
 
   return (
     <>

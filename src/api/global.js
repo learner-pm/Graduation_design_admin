@@ -12,15 +12,17 @@ export async function getAllTotalApi() {
   const url = _url.getAllTotal;
   return fetch.get(url);
 }
-export async function getDownloadApi() {
-  const url = _url.getDownload;
-  return fetch.get(url);
-}
 export async function getAppUsersApi() {
   const url = _url.getAppUsers;
   return fetch.get(url);
 }
-export async function getUseAppsApi() {
-  const url = _url.getUseApps;
+
+export async function getDownloadApi() {
+  const url = _url.getDownload;
   return fetch.get(url);
 }
+
+// export async function getUseAppsApi() {
+//   const url = _url.getUseApps;
+//   return fetch.get(url);
+// }

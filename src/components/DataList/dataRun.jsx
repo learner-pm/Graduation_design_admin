@@ -2,13 +2,15 @@ import React from 'react';
 import { Table } from 'antd';
 import { columns, data } from './util';
 
-const DataRun = () => {
+const DataRun = (props) => {
+  const { setDateLink } = props;
   const pagination = {
     defaultCurrent: 1,
     showSizeChanger: true,
     pageSize: 10,
   };
   const toInformation = () => {
+    setDateLink('runInformation');
     //setPilot('userInformation');
   };
   const tableColumns = [

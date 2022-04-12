@@ -31,10 +31,9 @@ const Login = (props) => {
   }
 
   const onFinish = (values) => {
-    console.log('Success:', values);
     if (values.username && values.password) {
       dispatch({
-        type: 'user/login',
+        type: 'global/login',
         payload: {
           phone: values.username,
           passWord: sha256(values.password),

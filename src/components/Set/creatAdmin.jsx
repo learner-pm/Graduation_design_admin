@@ -12,7 +12,7 @@ const CreatAdmin = (props) => {
     console.log('Success:', values);
     if (values.username && values.password) {
       dispatch({
-        type: 'user/login',
+        type: 'admin/creat',
         payload: {
           phone: values.username,
           passWord: sha256(values.password),
