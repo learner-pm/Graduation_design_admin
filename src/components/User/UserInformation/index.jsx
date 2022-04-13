@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { LeftOutlined } from '@ant-design/icons';
+import { Table, Tag, Space } from 'antd';
 import '../style/userInformation.less';
 import { Title } from '../../Common/index';
+import { columns, data } from '../util';
 
 const img = require('./my.jpg');
 
@@ -13,7 +15,20 @@ const UserInformation = (props) => {
       payload: {},
     });
   }, []);
-
+  const pagination = {
+    defaultCurrent: 1,
+    showSizeChanger: true,
+    pageSize: 10,
+  };
+  const tableColumns = [
+    {
+      title: '用户名',
+      dataIndex: 'name',
+      key: 'name',
+      render: (text) => <a>{text}</a>,
+    },
+  ];
+  tableColumns.push(...columns);
   return (
     <>
       <div className="user_information_title">
@@ -64,10 +79,18 @@ const UserInformation = (props) => {
       >
         <Title title="相关信息" />
         <div className="user_information_ohter">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div className="user_page_table">
+            <Table
+              columns={tableColumns}
+              dataSource={data}
+              pagination={pagination}
+              scroll={{ y: 'calc((100vh - 620px)' }}
+            />
+          </div>
+          {/* <div>关注/被关注</div>
+          <div>发言趋势</div>
+          <div>跑步</div>
+          <div></div> */}
         </div>
       </div>
     </>

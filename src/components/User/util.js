@@ -6,7 +6,7 @@ const columns = [
     key: 'uuid',
   },
   {
-    title: 'Age',
+    title: '年龄',
     dataIndex: 'age',
     key: 'age',
     sorter: (a, b) => a.age - b.age,
@@ -22,11 +22,11 @@ const columns = [
     dataIndex: 'time',
     key: 'time',
   },
-  {
-    title: '地址',
-    dataIndex: 'address',
-    key: 'address',
-  },
+  // {
+  //   title: '地址',
+  //   dataIndex: 'address',
+  //   key: 'address',
+  // },
   {
     title: '密码等级',
     key: 'tags',
@@ -85,4 +85,5 @@ for (let i = 1; i < 40; i++) {
     tags: [i % 2 === 0 ? 0 : 1],
   });
 }
+
 export { columns, data };

@@ -1,7 +1,7 @@
 import { Table, Tag, Space } from 'antd';
 const columns = [
   {
-    title: '名字',
+    title: '管理员姓名',
     dataIndex: 'name',
     key: 'name',
     render: (text) => <a>{text}</a>,
@@ -13,7 +13,7 @@ const columns = [
     sorter: (a, b) => a.age - b.age,
   },
   {
-    title: 'ip',
+    title: 'Ip地址',
     dataIndex: 'address',
     key: 'address',
   },

@@ -1,7 +1,13 @@
 import fetch from '../util/request';
 import urls from '../util/urls';
+import _ from 'lodash';
 
 const _url = urls.get('data');
+
+export async function getRunApi(obj) {
+  const url = _.replace(_url.getRun, '{id}', obj.id);
+  return fetch.get(url);
+}
 
 export async function getBodyList(obj) {
   const url = _url.bodyList;

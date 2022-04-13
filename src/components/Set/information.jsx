@@ -21,7 +21,25 @@ const Information = (props) => {
         />
 
         <div className="set_information_div">
-          <div className="set_information_div_left">
+          <div>
+            <p>
+              <span>管理员名字</span>：admin
+            </p>
+            <p>
+              <span>密码等级</span>：强
+            </p>
+          </div>
+          <div>
+            <p>
+              <span>上次登录时间</span>：111
+            </p>
+            <p style={{ display: 'flex', alignItems: 'center' }}>
+              <span>头像</span>：
+              <img src={img} alt="头像" />
+            </p>
+          </div>
+
+          {/* <div className="set_information_div_left">
             <div>
               用户名字：<span> admin</span>
             </div>
@@ -40,7 +58,7 @@ const Information = (props) => {
             <div>
               备注：<span>无</span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

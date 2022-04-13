@@ -31,6 +31,11 @@ const Map = () => {
             [116.48367, 39.998968],
             [116.484648, 39.999861],
           ];
+        const lineArr = [
+          [116.478935, 39.997761],
+          [116.478939, 39.997825],
+          [116.478912, 39.998549],
+        ];
         const map = new AMap.Map('container', {
           //设置地图容器id
           resizeEnable: true,
@@ -39,27 +44,53 @@ const Map = () => {
           center: [116.397428, 39.90923],
           // center: [116.397428, 39.90923], //初始化地图中心点位置
         });
+        // marker = new AMap.Marker({
+        //   map: map,
+        //   position: [116.478935, 39.997761],
+        //   icon: 'https://webapi.amap.com/images/car.png',
+        //   offset: new AMap.Pixel(-26, -13),
+        //   autoRotation: true,
+        //   angle: -90,
+        // });
+
         // 绘制轨迹
-        marker = new AMap.Marker({
-          map: map,
-          position: [116.478935, 39.997761],
-          icon: 'https://webapi.amap.com/images/car.png',
-          offset: new AMap.Pixel(-26, -13),
-          autoRotation: true,
-          angle: -90,
-        });
         var polyline = new AMap.Polyline({
           map: map,
-          path,
+          path: lineArr,
           showDir: true,
           strokeColor: '#28F', //线颜色
           // strokeOpacity: 1,     //线透明度
           strokeWeight: 6, //线宽
           // strokeStyle: "solid"  //线样式
         });
-        // map.Polyline({
-        //   path,
+
+        // var passedPolyline = new AMap.Polyline({
+        //   map: map,
+        //   // path: lineArr,
+        //   strokeColor: '#AF5', //线颜色
+        //   // strokeOpacity: 1,     //线透明度
+        //   strokeWeight: 6, //线宽
+        //   // strokeStyle: "solid"  //线样式
         // });
+
+        // marker.on('moving', function (e) {
+        //   passedPolyline.setPath(e.passedPath);
+        // });
+        map.setFitView();
+        //setInterval(() => {
+        //lineArr.push(path[lineArr.length]);
+        // var polyline = new AMap.Polyline({
+        //   map: map,
+        //   path: lineArr,
+        //   showDir: true,
+        //   strokeColor: '#28F', //线颜色
+        //   // strokeOpacity: 1,     //线透明度
+        //   strokeWeight: 6, //线宽
+        //   // strokeStyle: "solid"  //线样式
+        // });
+        //map.setFitView();
+
+        //}, 1000);
       })
       .catch((e) => {
         console.log(e);

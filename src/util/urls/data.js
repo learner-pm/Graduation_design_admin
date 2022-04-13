@@ -21,5 +21,9 @@ export default {
       tyep: 'getRunList',
       url: '/data/runList',
     },
+    {
+      type: 'getRun',
+      url: '/data/run/{id}',
+    },
   ],
 };

@@ -11,6 +11,7 @@ const HomeTotal = (props) => {
   }, []);
   useEffect(() => {
     const total = dispatch({
+      //获取所有数据
       type: 'global/total',
       payload: {},
     });
