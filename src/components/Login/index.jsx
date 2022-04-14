@@ -8,27 +8,6 @@ import LoginDate from './loginDate';
 const Login = (props) => {
   const url = require('./image/login.jpg');
   const { dispatch } = props;
-  const [email, setEmail] = useState(undefined);
-  const [word, setWord] = useState(undefined);
-
-  const getEmail = (e) => {
-    setEmail(e.target.value);
-    console.log(e.target.value);
-  };
-
-  const getWord = (e) => {
-    setWord(e.target.value);
-  };
-  //console.log(typeof typeof word);
-  const login = () => {
-    if (email && word) {
-      sessionStorage.setItem('id', '001');
-      history.push('/home');
-    }
-  };
-  function onChange(e) {
-    console.log(`checked = ${e.target.checked}`);
-  }
 
   const onFinish = (values) => {
     if (values.username && values.password) {
@@ -41,14 +20,10 @@ const Login = (props) => {
       });
     }
   };
-  // useEffect(() => {
-  //   console.log(onFinish);
-  // }, [onFinish]);
 
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
-  const flag = true;
   return (
     <>
       <div className="app_login">

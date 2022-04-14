@@ -5,15 +5,18 @@ const { RangePicker } = DatePicker;
 
 const { Search } = Input;
 
-const UserPageSearch = () => {
-  const onSearch = (value) => console.log(value);
+const UserPageSearch = (props) => {
+  const { dispatch } = props;
+  const onSearch = () => {};
   return (
     <>
       <div className="user_page_search">
         <Space size={12}>
           <Input placeholder="输入关键字" style={{ width: 160 }} />
           <RangePicker showTime />
-          <Button type="primary">查询</Button>
+          <Button type="primary" onClick={onSearch}>
+            查询
+          </Button>
         </Space>
       </div>
     </>

@@ -9,7 +9,8 @@ import { Title } from '../Common/index';
 import AppSearch from './appSearch';
 import AppEdition from './appEdition';
 
-const App = () => {
+const App = (props) => {
+  const { dispatch } = props;
   const [appData, setAppData] = useState([]);
   useEffect(() => {
     asyncFetch();

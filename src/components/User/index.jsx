@@ -15,7 +15,7 @@ const User = (props) => {
         <div className="user_page">
           <div></div>
           <Title title="用户列表" />
-          <UserPageSearch />
+          <UserPageSearch dispatch={dispatch} />
           <UserPageTable setPilot={setPilot} dispatch={dispatch} />
         </div>
       )}

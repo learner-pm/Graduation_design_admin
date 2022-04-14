@@ -42,12 +42,14 @@ const Basis = (props) => {
     },
   ]);
   useEffect(() => {
+    //模拟请求数据
     if (loading === true)
       setTimeout(() => {
         setLoading(!loading);
       }, 600);
   }, [loading]);
   useEffect(() => {
+    //通过
     const path = location.pathname.replace('/', '');
     if (path.indexOf('app') !== -1) {
       const open = path.split('/');
@@ -83,11 +85,6 @@ const Basis = (props) => {
     }
   };
   const menuClick = ({ item, key, keyPath, domEvent }) => {
-    //console.log(item);
-    //console.log(key);
-    // setTitle(key);
-    //if (key.includes('data')) history.push('/data');
-    //else history.push(`/${key}`);
     setSelectedKeys(() => {
       return [key];
     });
@@ -109,11 +106,7 @@ const Basis = (props) => {
           ctn: urlMap[key],
         },
       ];
-
-      // arr[0] = arr[0].toUpperCase();
     });
-    //const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-
     setLoading(!loading);
     history.push(`/${key}`);
   };
@@ -152,7 +145,7 @@ const Basis = (props) => {
               </Menu.Item>
               <SubMenu key="App" icon={<LineChartOutlined />} title="APP">
                 <Menu.Item key="app">信息情况</Menu.Item>
-                <Menu.Item key="app/resoures">视频文章</Menu.Item>
+                <Menu.Item key="app/resoures">文章</Menu.Item>
                 <Menu.Item key="app/tlak">圈子</Menu.Item>
                 {/* <Menu.Item key="app/run">Run</Menu.Item> */}
               </SubMenu>

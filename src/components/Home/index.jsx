@@ -13,7 +13,12 @@ import AppList from './appList';
 const Home = (props) => {
   const { dispatch } = props;
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const lineData = dispatch({
+      type: 'global/appUsers',
+      payload: {},
+    });
+  }, []);
   const barConfig = {
     data: barData,
     xField: 'value',
@@ -88,25 +93,7 @@ const Home = (props) => {
   return (
     <>
       <div className="home">
-        {/* <p className="link">首页</p> */}
         <HomeTotal dispatch={dispatch} />
-        {/* <div className="home_div" style={{ height: '40%' }}>
-          <WelcomeBack />
-
-          <div className="home_charts">
-            <p className="home_charts_text">用户年龄分布情况：</p>
-            <div className="home_charts_div">
-              <Pie {...pieConfig} />
-            </div>
-          </div>
-
-          <div className="home_charts" style={{ width: '33%' }}>
-            <p className="home_charts_text">使用APP时间端频率：</p>
-            <div className="home_charts_div">
-              <Bar {...barConfig} style={{ height: '86%', width: '100%' }} />
-            </div>
-          </div>
-        </div> */}
         <div className="home_div" style={{ height: 'calc(100% - 220px)' }}>
           <div className="home_website">
             <Title

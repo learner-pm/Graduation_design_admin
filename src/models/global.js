@@ -20,20 +20,18 @@ export default {
         sessionStorage.setItem('id', '001');
         history.push('/home');
       } else {
-        history.push('/home');
         sessionStorage.setItem('id', '001');
+        history.push('/home');
         message.error(result.message);
       }
-      //return result;
     },
     *total({ payload }, { call }) {
       console.log(1);
       const result = yield call(getAllTotalApi, payload);
       return result;
     },
-    *total({ payload }, { call }) {
-      console.log(1);
-      const result = yield call(getAllTotalApi, payload);
+    *appUsers({ payload }, { call }) {
+      const result = yield call(getUseAppsApi, payload);
       return result;
     },
     *test({ payload }, { call }) {

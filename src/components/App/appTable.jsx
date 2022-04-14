@@ -1,9 +1,8 @@
 import React from 'react';
 import { Table, Input, Space, DatePicker, Button } from 'antd';
 import { columns, data } from './util';
-const { RangePicker } = DatePicker;
 import { Title } from '../Common';
-
+const { RangePicker } = DatePicker;
 const AppTable = () => {
   const pagination = {
     defaultCurrent: 1,

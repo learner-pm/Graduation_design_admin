@@ -8,6 +8,8 @@ export async function getAppInformationApi(obj) {
   return fetch.post(url, obj);
 }
 
+export async function getAppVersion(obj) {}
+
 export async function getAppHostWordsApi(obj) {
   const url = _url.getAppHostWords;
   return fetch.post(url, obj);

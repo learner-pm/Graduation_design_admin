@@ -1,40 +1,34 @@
 import { Tag, Space } from 'antd';
 const artColumns = [
   {
-    title: '用户名',
-    dataIndex: 'name',
-    key: 'name',
-    render: (text) => <a>{text}</a>,
-  },
-  {
     title: 'Uuid',
     dataIndex: 'uuid',
     key: 'uuid',
   },
   {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
+    title: '发布时间',
+    dataIndex: 'creatTime',
+    key: 'creatTime',
     sorter: (a, b) => a.age - b.age,
   },
   {
-    title: '登录次数',
+    title: '流量次数',
     dataIndex: 'times',
     key: 'times',
     sorter: (a, b) => a.times - b.times,
   },
   {
-    title: '注册时间',
-    dataIndex: 'time',
-    key: 'time',
+    title: '点赞数',
+    dataIndex: 'liked',
+    key: 'liked',
   },
   {
-    title: '地址',
-    dataIndex: 'address',
-    key: 'address',
+    title: '被收藏',
+    dataIndex: 'collected',
+    key: 'collected',
   },
   {
-    title: '密码等级',
+    title: '推荐度',
     key: 'tags',
     dataIndex: 'tags',
     render: (tags) => (
@@ -54,7 +48,7 @@ const artColumns = [
     ),
   },
   {
-    title: 'Action',
+    title: '操作',
     key: 'action',
     render: (text, record) => (
       <Space size="middle">
@@ -71,10 +65,10 @@ const artData = [
     key: '0',
     name: 'John Brown',
     uuid: 'dsadsa0dsa12da0',
-    age: 32,
+    creatTime: '2020 12 12',
     times: 12,
-    time: '2020 12 12',
-    address: '四川成都',
+    liked: 0,
+    collected: 'one',
     tags: [0],
   },
 ];
@@ -84,10 +78,10 @@ for (let i = 1; i < 40; i++) {
     key: i,
     name: 'John Brown' + i,
     uuid: 'dsadsa0dsa12da0' + i,
-    age: 32,
+    creatTime: '2020 12 12',
     times: 12,
-    time: '2020 12 12',
-    address: '四川成都',
+    liked: i * 10,
+    collected: 'one',
     tags: [i % 2 === 0 ? 0 : 1],
   });
 }

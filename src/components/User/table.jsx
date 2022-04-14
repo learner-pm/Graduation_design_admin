@@ -5,11 +5,14 @@ import { columns, data } from './util';
 const UserPageTable = (props) => {
   const { setPilot, dispatch } = props;
   useEffect(() => {
+    getTableList();
+  }, []);
+  const getTableList = () => {
     const list = dispatch({
       type: 'user/list',
-      payload: '',
+      payload: {},
     });
-  }, []);
+  };
   const pagination = {
     defaultCurrent: 1,
     showSizeChanger: true,
