@@ -80,7 +80,7 @@ const AppSearch = () => {
             alignItems: 'center',
           }}
         >
-          热词
+          App搜索热词
           <Button type="primary" size="small" onClick={showDrawer}>
             更多
           </Button>

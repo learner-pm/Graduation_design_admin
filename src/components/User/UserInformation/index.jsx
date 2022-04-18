@@ -37,7 +37,7 @@ const UserInformation = (props) => {
         </div>
         <p>用户详情</p>
       </div>
-      <div style={{ height: 220 }}>
+      <div style={{ height: 220, marginTop: 10 }}>
         <Title title="基础信息" />
         <div className="user_information">
           <div className="user_information_col">

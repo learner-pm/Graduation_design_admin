@@ -20,7 +20,7 @@ const AppTlak = () => {
             <p>
               <PlusOutlined style={{ fontSize: '40px' }} />
             </p>
-            <p>添加文章</p>
+            <p>添加帖子</p>
           </div>
         </div>
         <Title title="论坛列表" />

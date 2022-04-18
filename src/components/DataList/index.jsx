@@ -12,6 +12,8 @@ import {
   TreeSelect,
   Switch,
   Space,
+  Row,
+  Col,
 } from 'antd';
 import { DoubleRightOutlined } from '@ant-design/icons';
 import { Title } from '../Common/index';
@@ -119,9 +121,8 @@ const DataList = () => {
               <Title title="模板参数" />
               <p
                 style={{
-                  width: '80%',
-                  margin: '0 auto',
-                  marginTop: 8,
+                  padding: '10px 20px',
+                  margin: 0,
                   color: 'rgba(0, 0, 0, 0.45)',
                   fontSize: 14,
                   textAlign: 'right',
@@ -129,26 +130,35 @@ const DataList = () => {
               >
                 评断的基本参数
               </p>
-              <div className="data_list_form" style={{ position: 'relative' }}>
-                {/* <div style={{ position: 'absolute', left: '120%', top: '10%' }}>
-              <DoubleRightOutlined />
-            </div> */}
+              <div className="data_list_form">
                 <Form
                   layout="horizontal"
                   initialValues={{
                     size: 'default',
                   }}
-                  size="default"
                 >
+                  {/* <Row>
+                    <Col span={10}>
+                      <Form.Item label="模板">
+                        <Input />
+                      </Form.Item>
+                    </Col>
+                    <Col span={10}>
+                      <Form.Item label="年龄" style={{ width: 140 }}>
+                        <Input />
+                      </Form.Item>
+                    </Col>
+                  </Row> */}
                   <Space size={'small'}>
-                    <Form.Item label="模板" style={{ width: 140 }}>
+                    <Form.Item label="模板">
                       <Input />
                     </Form.Item>
-                    <Form.Item label="误差">
-                      <InputNumber />
+                    <Form.Item label="年龄">
+                      <Input />
                     </Form.Item>
                   </Space>
-                  <Space size={'small'} style={{ width: 280 }}>
+
+                  <Space size={'small'}>
                     <Form.Item label="身高">
                       <Input />
                     </Form.Item>
@@ -156,16 +166,14 @@ const DataList = () => {
                       <Input />
                     </Form.Item>
                   </Space>
-
                   <Space size={'small'}>
-                    <Form.Item label="年龄" style={{ width: 140 }}>
-                      <Input />
+                    <Form.Item label="误差">
+                      <InputNumber />
                     </Form.Item>
                     <Form.Item label="性别" valuePropName="sex">
                       <Switch />
                     </Form.Item>
                   </Space>
-
                   <Form.Item style={{ width: '100%' }}>
                     <Button
                       style={{ width: '100%' }}

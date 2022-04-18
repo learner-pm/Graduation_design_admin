@@ -8,9 +8,9 @@ const RunInfoarmaiton = (props) => {
   const { setDateLink } = props;
   return (
     <>
-      <div className="run_information_link">
+      <div className="user_information_title">
         <div onClick={() => setDateLink('dataList')}>
-          <LeftOutlined style={{ color: 'white' }} />
+          <LeftOutlined style={{ color: '#00000073' }} />
         </div>
         <p>数据详情</p>
       </div>
@@ -50,7 +50,7 @@ const RunInfoarmaiton = (props) => {
             <p></p>
           </div>
         </div>
-        <div style={{ height: 'calc(100% - 270px)' }}>
+        <div style={{ height: 'calc(100% - 270px)', marginTop: 10 }}>
           <Title title="轨迹图" />
           <div
             style={{

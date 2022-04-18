@@ -7,6 +7,7 @@ import Footer from './Footer';
 import WelcomeBack from './homeBack';
 import HomeTotal from './homeTotal';
 import { Title } from '../Common';
+import ApiHistory from './apiHistory';
 const { TabPane } = Tabs;
 import WebsiteList from './websiteList';
 import AppList from './appList';
@@ -94,7 +95,7 @@ const Home = (props) => {
     <>
       <div className="home">
         <HomeTotal dispatch={dispatch} />
-        <div className="home_div" style={{ height: 'calc(100% - 220px)' }}>
+        <div className="home_div" style={{ height: 'calc(100% - 200px)' }}>
           <div className="home_website">
             <Title
               title="访问量/下载量"
@@ -111,18 +112,20 @@ const Home = (props) => {
             </div>
           </div>
           <div className="home_website_total">
-            <Tabs
+            <Title title="日志" />
+            <ApiHistory />
+            {/* <Tabs
               defaultActiveKey="1"
               onChange={callback}
               style={{ height: '100%', padding: '0 20px' }}
             >
-              <TabPane tab="网站" key="1" style={{ height: '100%' }}>
-                {/* <WebsiteList /> */}
-              </TabPane>
-              <TabPane tab="APP" key="2">
-                {/* <AppList /> */}
-              </TabPane>
-            </Tabs>
+              <TabPane tab="网站" key="1" style={{ height: '100%' }}> */}
+            {/* <WebsiteList /> */}
+            {/* </TabPane>
+              <TabPane tab="APP" key="2"> */}
+            {/* <AppList /> */}
+            {/* </TabPane>
+            </Tabs> */}
           </div>
         </div>
       </div>

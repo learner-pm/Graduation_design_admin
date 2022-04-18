@@ -1,0 +1,82 @@
+import React from 'react';
+import { Table, Tag, Space } from 'antd';
+const CommentTable = () => {
+  const artPagination = {
+    defaultCurrent: 1,
+    showSizeChanger: true,
+    pageSize: 10,
+  };
+  const artColumns = [
+    {
+      title: '用户名',
+      dataIndex: 'name',
+      key: 'name',
+      //render: (text) => <a onClick={() => {}}>{text}</a>,
+    },
+    {
+      title: 'Uuid',
+      dataIndex: 'uuid',
+      key: 'uuid',
+    },
+    {
+      title: '评论时间',
+      dataIndex: 'creatTime',
+      key: 'creatTime',
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: '评论内容',
+      dataIndex: 'content',
+      key: 'content',
+      width: 260,
+      ellipsis: true,
+    },
+    {
+      title: '操作',
+      key: 'action',
+      render: (text, record) => (
+        <Space size="middle">
+          <a style={{ color: 'red' }}>删除</a>
+        </Space>
+      ),
+    },
+  ];
+
+  const artData = [
+    {
+      key: '0',
+      name: 'John Brown',
+      uuid: 'dsadsa0dsa12da0',
+      creatTime: '2020 12 12',
+      times: 12,
+      liked: 0,
+      content: 'one',
+      tags: [0],
+    },
+  ];
+
+  for (let i = 1; i < 40; i++) {
+    artData.push({
+      key: i,
+      name: 'John Brown' + i,
+      uuid: 'dsadsa0dsa12da0' + i,
+      creatTime: '2020 12 12',
+      times: 12,
+      liked: i * 10,
+      content: 'one',
+      tags: [i % 2 === 0 ? 0 : 1],
+    });
+  }
+  return (
+    <>
+      <Table
+        columns={artColumns}
+        dataSource={artData}
+        pagination={artPagination}
+        scroll={{ y: 'calc(100vh - 610px)' }}
+      />
+    </>
+  );
+};
+
+export default CommentTable;

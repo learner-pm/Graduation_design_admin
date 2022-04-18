@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './style/index.less';
-import { Timeline, Button } from 'antd';
+import { Timeline, Button, Tooltip } from 'antd';
 import { ClockCircleOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import { Line } from '@ant-design/plots';
 import AppTable from './appTable';
@@ -131,7 +131,10 @@ const App = (props) => {
                   alignItems: 'center',
                 }}
               >
-                星级情况 <InfoCircleOutlined />
+                星级情况
+                <Tooltip title="用户APP打分情况" color={'#2db7f5'}>
+                  <InfoCircleOutlined />
+                </Tooltip>
               </p>
               <div style={{ height: 'calc(100% - 50px)', padding: '4px 12px' }}>
                 <Column

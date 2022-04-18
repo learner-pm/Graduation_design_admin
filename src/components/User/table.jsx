@@ -38,7 +38,7 @@ const UserPageTable = (props) => {
           columns={tableColumns}
           dataSource={data}
           pagination={pagination}
-          scroll={{ y: 'calc((100vh - 460px)' }}
+          scroll={{ y: 'calc(100vh - 460px)' }}
         />
       </div>
     </>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Progress } from 'antd';
+import { Progress, Tooltip } from 'antd';
 import { InfoCircleOutlined, CaretUpOutlined } from '@ant-design/icons';
 import { Area, Column } from '@ant-design/plots';
 const HomeTotal = (props) => {
@@ -84,7 +84,10 @@ const HomeTotal = (props) => {
         <div className="home_total_div">
           <div className="home_total_div_number">
             <p>
-              总访问量 <InfoCircleOutlined />
+              总访问量{' '}
+              <Tooltip title="包含网站和App的所有下载访问量" color={'#2db7f5'}>
+                <InfoCircleOutlined />
+              </Tooltip>
             </p>
             <p>826,560</p>
             <div className="home_total_div_number_div">
@@ -126,7 +129,14 @@ const HomeTotal = (props) => {
         <div className="home_total_div">
           <div className="home_total_div_number">
             <p>
-              活跃度 <InfoCircleOutlined />
+              活跃度{' '}
+              <Tooltip
+                title="所有用户周活跃上线大于4天的比例"
+                color={'#2db7f5'}
+                placement="topLeft"
+              >
+                <InfoCircleOutlined />
+              </Tooltip>
             </p>
             <p>75%</p>
             <div className="home_total_div_number_progress">
