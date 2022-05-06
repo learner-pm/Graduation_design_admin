@@ -1,21 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Progress, Tooltip } from 'antd';
 import { InfoCircleOutlined, CaretUpOutlined } from '@ant-design/icons';
 import { Area, Column } from '@ant-design/plots';
+
 const HomeTotal = (props) => {
   const { dispatch } = props;
   const [appData, setAppData] = useState([]);
+  const [test, setTest] = useState(0);
 
-  useEffect(() => {
-    asyncFetch();
-  }, []);
-  useEffect(() => {
-    const total = dispatch({
-      //获取所有数据
-      type: 'global/total',
-      payload: {},
-    });
-  }, [dispatch]);
   const asyncFetch = () => {
     fetch(
       'https://gw.alipayobjects.com/os/bmw-prod/360c3eae-0c73-46f0-a982-4746a6095010.json',
@@ -26,6 +18,18 @@ const HomeTotal = (props) => {
         console.log('fetch data failed', error);
       });
   };
+  useEffect(() => {
+    asyncFetch();
+    console.log(1);
+    setTest((test) => test + 1);
+  }, []);
+  useEffect(() => {
+    const total = dispatch({
+      //获取所有数据
+      type: 'global/total',
+      payload: {},
+    });
+  }, [dispatch]);
 
   const appConfig = {
     data: appData,

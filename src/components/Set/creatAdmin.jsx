@@ -17,6 +17,8 @@ const CreatAdmin = (props) => {
           phone: values.username,
           passWord: sha256(values.password),
         },
+      }).then((e) => {
+        console.log(e);
       });
     }
   };
