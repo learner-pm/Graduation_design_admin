@@ -30,7 +30,16 @@ const UserPageTable = (props) => {
       render: (text) => <a onClick={toInformation}>{text}</a>,
     },
   ];
-  tableColumns.push(...columns);
+  tableColumns.push(...columns, {
+    title: 'Action',
+    key: 'action',
+    render: (text, record) => (
+      <Space size="middle">
+        <a onClick={toInformation}>查看</a>
+        <a style={{ color: '#00000073' }}>封禁</a>
+      </Space>
+    ),
+  });
   return (
     <>
       <div className="user_page_table">

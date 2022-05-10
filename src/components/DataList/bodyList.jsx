@@ -46,7 +46,7 @@ const BodyList = () => {
             columns={columns}
             dataSource={data}
             pagination={false}
-            scroll={{ y: 'calc((100vh - 760px)' }}
+            scroll={{ y: 'calc((100vh - 780px)' }}
           />
         </div>
       </div>

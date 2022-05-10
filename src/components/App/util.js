@@ -50,17 +50,17 @@ const columns = [
       </>
     ),
   },
-  {
-    title: 'Action',
-    key: 'action',
-    fixed: 'right',
-    render: (text, record) => (
-      <Space size="middle">
-        <a>查看</a>
-        <a>删除</a>
-      </Space>
-    ),
-  },
+  // {
+  //   title: 'Action',
+  //   key: 'action',
+  //   fixed: 'right',
+  //   render: (text, record) => (
+  //     <Space size="middle">
+  //       <a>查看</a>
+  //       <a>删除</a>
+  //     </Space>The new UI is achieved
+  //   ),
+  // },
 ];
 
 const data = [

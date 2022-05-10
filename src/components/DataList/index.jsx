@@ -23,7 +23,7 @@ import DataRun from './dataRun';
 import RunInfoarmaiton from './runInformation';
 
 const DataList = () => {
-  const [dataLink, setDateLink] = useState('runInformation');
+  const [dataLink, setDateLink] = useState('dataList');
   const data = [
     {
       type: '差',
